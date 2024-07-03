@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Форма обратной связи</title>
+</head>
+<body>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <form id="feedback-form" action="http://127.0.0.1:5000/process_form" method="post">
+        <label for="child_name">Имя вашего ребенка:</label>
+        <input type="text" id="child_name" name="child_name" required>
+        <label for="child_surname">Фамилия вашего ребенка:</label>
+        <input type="text" id="child_surname" name="child_surname" required>
+        <label for="child_class">Класс вашего ребенка:</label>
+        <input type="text" id="child_class" name="child_class" required>
+        <label for="message">Ваша заявка:</label>
+        <textarea id="application" name="application" rows="4" required></textarea>
+        <button type="submit"> Отправить заявку </button>
+    </form>
+</body>
+</html>
