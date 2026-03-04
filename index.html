@@ -1,23 +1,391 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Форма обратной связи</title>
+    <title>Wisdom School | Никто не уйдет прежним</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blood: {
+                            500: '#8a0303',
+                            600: '#5c0000',
+                            700: '#3d0000',
+                            900: '#1f0000',
+                        },
+                        void: '#050505',
+                        ash: '#888888'
+                    },
+                    fontFamily: {
+                        horror: ['Creepster', 'cursive'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    animation: {
+                        flicker: 'flicker 3s linear infinite',
+                        pulseBlood: 'pulseBlood 2s ease-in-out infinite',
+                        glitch: 'glitch 1s linear infinite',
+                    },
+                    keyframes: {
+                        flicker: {
+                            '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': { opacity: 1 },
+                            '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': { opacity: 0.2 },
+                        },
+                        pulseBlood: {
+                            '0%, 100%': { boxShadow: '0 0 15px #8a0303' },
+                            '50%': { boxShadow: '0 0 30px #ff0000, 0 0 10px #8a0303 inset' },
+                        },
+                        glitch: {
+                            '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                            '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                            '62%': { transform: 'translate(0,0) skew(5deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #d1d5db;
+            cursor: crosshair;
+            overflow-x: hidden;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .blood-drip {
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 50px;
+            background: #8a0303;
+            animation: drip 3s infinite ease-in;
+            opacity: 0.7;
+        }
+
+        @keyframes drip {
+            0% { transform: translateY(-100%); opacity: 1; height: 10px; }
+            80% { height: 60px; }
+            100% { transform: translateY(1000%); opacity: 0; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3d0000; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8a0303; 
+        }
+    </style>
 </head>
-<body>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <form id="feedback-form" action="" method="post">
-        <label for="child_name">Имя вашего ребенка:</label>
-        <input type="text" id="child_name" name="child_name" required>
-        <label for="child_surname">Фамилия вашего ребенка:</label>
-        <input type="text" id="child_surname" name="child_surname" required>
-        <label for="child_class">Класс вашего ребенка:</label>
-        <input type="text" id="child_class" name="child_class" required>
-        <label for="message">Ваша заявка:</label>
-        <textarea id="application" name="application" rows="4" required></textarea>
-        <button type="submit"> Отправить заявку </button>
-    </form>
+<body class="font-serif antialiased selection:bg-blood-500 selection:text-white relative">
+
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 bg-void/90 backdrop-blur-sm border-b border-blood-900 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <svg class="w-8 h-8 text-blood-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="font-horror text-2xl tracking-widest text-blood-500 uppercase hover:text-red-500 transition-colors">Wisdom School</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-ash hover:text-blood-500 hover:scale-105 transition-all text-lg tracking-wider">История проклятия</a>
+                    <a href="#features" class="text-ash hover:text-blood-500 hover:scale-105 transition-all text-lg tracking-wider">Наши ритуалы</a>
+                    <a href="#testimonials" class="text-ash hover:text-blood-500 hover:scale-105 transition-all text-lg tracking-wider">Голоса жертв</a>
+                </div>
+                <div>
+                    <a href="#enroll" class="hidden md:inline-flex items-center justify-center px-6 py-2 border border-blood-500 text-blood-500 hover:bg-blood-500 hover:text-void transition-all duration-300 animate-pulseBlood font-bold uppercase tracking-widest">
+                        Отдать душу
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Creepy background image with overlay -->
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop" alt="Dark creepy school" class="w-full h-full object-cover object-center opacity-30 filter grayscale sepia-[.3] hue-rotate-[320deg]">
+            <div class="absolute inset-0 bg-gradient-to-t from-void via-void/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-void via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+            <h2 class="text-blood-500 font-horror text-xl md:text-3xl mb-4 tracking-[0.3em] uppercase animate-flicker">Добро пожаловать в ад</h2>
+            <h1 class="text-5xl md:text-8xl font-horror text-white mb-6 tracking-widest uppercase drop-shadow-[0_0_15px_rgba(138,3,3,0.8)] relative inline-block group">
+                Wisdom School
+                <span class="absolute top-0 left-0 w-full h-full text-blood-500 opacity-0 group-hover:opacity-100 group-hover:animate-glitch transition-opacity">Wisdom School</span>
+            </h1>
+            <p class="text-xl md:text-3xl text-gray-400 mb-10 max-w-3xl mx-auto italic">
+                "Знания требуют жертв. Ваше будущее уже предрешено в наших стенах."
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#enroll" class="px-8 py-4 bg-blood-600 text-white font-bold tracking-widest uppercase hover:bg-blood-500 hover:shadow-[0_0_30px_#8a0303] transition-all border border-blood-400 relative overflow-hidden group">
+                    <span class="relative z-10">Поступить сейчас</span>
+                    <div class="absolute inset-0 bg-void transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    <span class="relative z-10 text-blood-500 opacity-0 group-hover:opacity-100 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">Остаться навсегда</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About / The Curse -->
+    <section id="about" class="py-24 relative bg-void border-t border-blood-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blood-600 to-blood-900 opacity-20 group-hover:opacity-50 blur transition duration-1000"></div>
+                    <img src="https://images.unsplash.com/photo-1505635552518-3448ff116af3?q=80&w=1000&auto=format&fit=crop" alt="School hallway" class="relative z-10 w-full h-auto filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700 border border-blood-900/50">
+                    <div class="absolute inset-0 bg-blood-900/20 mix-blend-multiply z-20 pointer-events-none group-hover:bg-transparent transition-all"></div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-px bg-blood-500"></div>
+                        <h3 class="font-horror text-blood-500 text-2xl tracking-widest uppercase">О нас</h3>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl text-white mb-6 leading-tight">Традиции, высеченные <span class="text-blood-500 italic">кровью</span></h2>
+                    <p class="text-ash text-xl mb-6 leading-relaxed">
+                        Wisdom School — это не просто частная школа. Это изолированный мир, где стираются границы между реальностью и кошмаром. Мы отбираем только лучших, чтобы вылепить из них идеальные механизмы. 
+                    </p>
+                    <p class="text-ash text-xl mb-8 leading-relaxed">
+                        Наш кампус скрыт от посторонних глаз. Как только ворота закрываются за вами, обратного пути нет. Высокие академические стандарты. Железная дисциплина. Абсолютное подчинение.
+                    </p>
+                    <ul class="space-y-4 text-gray-300 text-lg">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-blood-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Уникальная программа выживания</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-blood-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Преподаватели, которые видят вас насквозь</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-blood-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Круглосуточное наблюдение за каждым вздохом</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Rituals -->
+    <section id="features" class="py-24 relative bg-[url('https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=2000&auto=format&fit=crop')] bg-fixed bg-cover bg-center">
+        <div class="absolute inset-0 bg-void/90"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h3 class="font-horror text-blood-500 text-2xl tracking-widest uppercase mb-2 animate-pulse">Наши преимущества</h3>
+                <h2 class="text-4xl md:text-5xl text-white">Почему вам не сбежать от нас</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-void/80 border border-blood-900/50 p-8 hover:bg-blood-900/20 transition-all group hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(138,3,3,0.3)]">
+                    <div class="w-16 h-16 bg-blood-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-blood-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="text-2xl text-white mb-4">Темные знания</h3>
+                    <p class="text-ash leading-relaxed">
+                        Мы обучаем предметам, о которых молчат обычные школы. Математика вероятностей смерти, анатомия страха и химия ядов. Глубокое погружение гарантировано.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-void/80 border border-blood-900/50 p-8 hover:bg-blood-900/20 transition-all group hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(138,3,3,0.3)]">
+                    <div class="w-16 h-16 bg-blood-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-blood-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl text-white mb-4">Всевидящее Око</h3>
+                    <p class="text-ash leading-relaxed">
+                        Каждый класс, каждый коридор оснащен системами наблюдения. Наставники видят вас, даже когда вы спите. Безопасность через тотальный контроль.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-void/80 border border-blood-900/50 p-8 hover:bg-blood-900/20 transition-all group hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(138,3,3,0.3)]">
+                    <div class="w-16 h-16 bg-blood-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-blood-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl text-white mb-4">Закрытый Кампус</h3>
+                    <p class="text-ash leading-relaxed">
+                        Наш кампус обнесен высокой стеной с колючей проволокой. Это сделано не для того, чтобы не впустить чужих, а чтобы не выпустить своих.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-void relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-horror text-center text-blood-500 text-3xl md:text-5xl mb-16 tracking-widest uppercase">Последние слова</h2>
+            
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-blood-900 before:to-transparent">
+                
+                <!-- Review 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-void text-blood-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-void/50 border border-blood-900/50 p-6 rounded relative before:absolute before:top-4 before:w-4 before:h-4 before:bg-void before:border-blood-900/50 before:border-t before:border-l before:transform md:group-odd:before:right-0 md:group-odd:before:translate-x-1/2 md:group-odd:before:rotate-135 md:group-even:before:left-0 md:group-even:before:-translate-x-1/2 md:group-even:before:-rotate-45">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-white text-xl">Мария К.</h3>
+                            <span class="text-sm text-blood-500">Мать ученика</span>
+                        </div>
+                        <p class="text-ash italic">"Мой сын поступил в Wisdom School год назад. Сначала он писал мне письма, потом перестал. Когда он приехал на каникулы... он был идеальным. Он не плачет, не смеется, только смотрит в стену и решает уравнения. Спасибо, школа!"</p>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-blood-500 bg-blood-900 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 animate-pulse">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></svg>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-blood-900/10 border border-blood-500/50 p-6 rounded relative before:absolute before:top-4 before:w-4 before:h-4 before:bg-[#0f0303] before:border-blood-500/50 before:border-t before:border-l before:transform md:group-odd:before:right-0 md:group-odd:before:translate-x-1/2 md:group-odd:before:rotate-135 md:group-even:before:left-0 md:group-even:before:-translate-x-1/2 md:group-even:before:-rotate-45">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-bold text-blood-400 text-xl">Аноним</h3>
+                            <span class="text-sm text-blood-600">Бывший ученик</span>
+                        </div>
+                        <p class="text-ash italic">"П0М0ГИТЕ ОНИ СМ0ТРЯТ ИЗ ЗЕРКАЛ Я НЕ М0ГУ УСНУТЬ ПЯТЫЙ ДЕНЬ ДИРЕКТОР СТОИТ ЗА МОЕЙ СПИН0Й ПРЯМ0 СЕЙЧАС..."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Enrollment Form -->
+    <section id="enroll" class="py-24 relative overflow-hidden bg-void border-t border-blood-900">
+        <!-- Creepy cobweb or overlay -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blood-900/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blood-900/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="bg-void/80 border-2 border-blood-900 p-8 md:p-12 shadow-[0_0_50px_rgba(138,3,3,0.15)] backdrop-blur-sm">
+                <div class="text-center mb-10">
+                    <h2 class="text-4xl md:text-5xl font-horror text-white tracking-widest uppercase mb-4">Приглашение на казнь</h2>
+                    <p class="text-ash text-xl italic">Оставьте свои данные. За вами придут.</p>
+                </div>
+
+                <form id="sacrificeForm" class="space-y-6" onsubmit="event.preventDefault(); showScare();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-blood-500 text-sm font-bold mb-2 uppercase tracking-wider">Имя жертвы</label>
+                            <input type="text" required class="w-full bg-transparent border-b border-blood-900 focus:border-blood-500 text-white px-3 py-2 outline-none transition-colors duration-300 font-serif text-lg" placeholder="Напишите кровью...">
+                        </div>
+                        <div>
+                            <label class="block text-blood-500 text-sm font-bold mb-2 uppercase tracking-wider">Возраст</label>
+                            <input type="number" required class="w-full bg-transparent border-b border-blood-900 focus:border-blood-500 text-white px-3 py-2 outline-none transition-colors duration-300 font-serif text-lg" placeholder="Сколько лет вам осталось?">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-blood-500 text-sm font-bold mb-2 uppercase tracking-wider">Телефон для запугивания</label>
+                        <input type="tel" required class="w-full bg-transparent border-b border-blood-900 focus:border-blood-500 text-white px-3 py-2 outline-none transition-colors duration-300 font-serif text-lg" placeholder="+998 XX XXX XX XX">
+                    </div>
+                    <div class="flex items-start mt-6">
+                        <div class="flex items-center h-5">
+                            <input type="checkbox" required class="w-4 h-4 bg-void border-blood-500 rounded focus:ring-blood-500 focus:ring-2 accent-blood-600 cursor-pointer">
+                        </div>
+                        <label class="ml-2 text-sm text-ash cursor-pointer">
+                            Я добровольно отказываюсь от свободы, сна и здравого смысла, подписывая этот договор с <a href="https://www.wisdomschool.uz" target="_blank" class="text-blood-500 hover:text-red-500 underline">Wisdom School</a>.
+                        </label>
+                    </div>
+                    <div class="pt-6">
+                        <button type="submit" class="w-full bg-blood-600 hover:bg-blood-500 text-white font-bold py-4 px-8 uppercase tracking-[0.2em] transition-all duration-300 hover:shadow-[0_0_20px_#8a0303] flex justify-center items-center gap-2 group">
+                            <span>Подписать договор</span>
+                            <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Hidden Jumpscare / Success message -->
+                <div id="scareMessage" class="hidden mt-8 text-center animate-pulseBlood p-6 border border-blood-500 bg-blood-900/20">
+                    <h3 class="font-horror text-2xl text-blood-500 uppercase tracking-widest mb-2">Договор подписан</h3>
+                    <p class="text-white text-lg font-bold">Обернитесь. Мы уже здесь.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-blood-900/30 text-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-center mb-6">
+                <span class="font-horror text-3xl tracking-widest text-blood-900">Wisdom School</span>
+            </div>
+            <p class="text-blood-900/50 text-sm uppercase tracking-widest">
+                &copy; 1666 - 2026 Все души защищены. <br>
+                <a href="https://www.wisdomschool.uz" target="_blank" class="hover:text-blood-500 transition-colors">Оригинальный сайт для живых</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Form submission scare effect
+        function showScare() {
+            const form = document.getElementById('sacrificeForm');
+            const scare = document.getElementById('scareMessage');
+            
+            // Add some creepy visual effects to the page
+            document.body.style.animation = 'glitch 0.2s linear infinite';
+            setTimeout(() => {
+                document.body.style.animation = '';
+            }, 600);
+
+            // Hide form inputs, show message
+            form.querySelectorAll('input, button').forEach(el => el.style.opacity = '0.3');
+            form.querySelector('button').innerText = "ВЫ ПРИНАДЛЕЖИТЕ НАМ";
+            form.querySelector('button').disabled = true;
+            
+            scare.classList.remove('hidden');
+            
+            // Creepy console log
+            console.log("%c ТЫ СЛЕДУЮЩИЙ ", "background: red; color: black; font-size: 40px; font-weight: bold; font-family: sans-serif;");
+        }
+
+        // Random blood drips generator
+        function createBloodDrip() {
+            const drop = document.createElement('div');
+            drop.classList.add('blood-drip');
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(drop);
+            
+            setTimeout(() => {
+                drop.remove();
+            }, 5000);
+        }
+
+        setInterval(() => {
+            if(Math.random() > 0.7) {
+                createBloodDrip();
+            }
+        }, 2000);
+    </script>
 </body>
 </html>
