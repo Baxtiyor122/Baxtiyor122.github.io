@@ -1,414 +1,309 @@
-<!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<!doctype html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisdom School | Элитное Образование</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            DEFAULT: '#C5A059',
-                            light: '#E6C987',
-                            dark: '#9E7D3E',
-                        },
-                        navy: {
-                            DEFAULT: '#0F172A',
-                            dark: '#0B1120',
-                        },
-                        cream: {
-                            DEFAULT: '#FAFAFA',
-                            dark: '#F0EFEA',
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
-                    animation: {
-                        'slow-zoom': 'slowZoom 20s ease-out infinite alternate',
-                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
-                    },
-                    keyframes: {
-                        slowZoom: {
-                            '0%': { transform: 'scale(1)' },
-                            '100%': { transform: 'scale(1.05)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #FAFAFA;
-            color: #333333;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Визитка Zafar Gafurov</title>
+<meta name="description" content="Zafar Gafurov, тур-агент InTour Travel и тревел-блогер">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: one boarding pass on a phone screen — ticket up top, tear line, then contacts, the blog and destinations. */
+:root{
+  --bg:#E6EDF1; --card:#FFFFFF; --ink:#10283F; --muted:#5A6D7F; --line:#D5E0E7;
+  --tile:#0A7F8E; --tile-soft:#DCEFF1; --saffron:#B97C0C; --on-tile:#FFFFFF;
+  --shadow:0 1px 2px rgba(16,40,63,.06), 0 12px 32px -12px rgba(16,40,63,.22);
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08131C; --card:#122230; --ink:#E4EDF2; --muted:#8FA3B3; --line:#223646;
+    --tile:#2EB3C2; --tile-soft:#163A44; --saffron:#E3AE45; --on-tile:#06232A;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 16px 40px -16px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08131C; --card:#122230; --ink:#E4EDF2; --muted:#8FA3B3; --line:#223646;
+  --tile:#2EB3C2; --tile-soft:#163A44; --saffron:#E3AE45; --on-tile:#06232A;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 16px 40px -16px rgba(0,0,0,.6);
+  color-scheme:dark;
+}
 
-        ::selection {
-            background-color: #C5A059;
-            color: #ffffff;
-        }
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--body); font-size:15px; line-height:1.5;
+  padding-block:20px 40px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--tile); outline-offset:3px; border-radius:8px}
 
-        /* Утонченный скроллбар */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FAFAFA; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #C5A059; 
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #9E7D3E; 
-        }
+.pass{max-width:430px; margin:0 auto; background:var(--card); border-radius:24px; box-shadow:var(--shadow); overflow:hidden}
 
-        /* Эффект матового стекла для навигации */
-        .glass-nav {
-            background: rgba(250, 250, 250, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-        }
+/* header band */
+.band{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 22px; background:var(--tile); color:var(--on-tile)}
+.brand{font-family:var(--display); font-weight:700; font-size:14px; letter-spacing:.04em}
+.band small{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; opacity:.85}
 
-        /* Анимация появления элементов при скролле (упрощенная) */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+.sample{margin:14px 22px 0; padding:6px 10px; border-radius:8px; background:var(--tile-soft); color:var(--muted); font-size:12px; text-align:center}
+
+/* hero */
+.hero{display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:center; padding:20px 22px 6px}
+.stamp{width:76px; height:76px; border-radius:50%; display:grid; place-items:center; border:2px dashed var(--tile); color:var(--tile);
+  font-family:var(--display); font-weight:700; font-size:22px; transform:rotate(-8deg); position:relative}
+.stamp::after{content:""; position:absolute; inset:5px; border-radius:50%; border:1.5px solid var(--tile); opacity:.45}
+.hero h1{margin:0; font-family:var(--display); font-weight:700; font-size:clamp(21px, 6vw, 25px); line-height:1.15; text-wrap:balance}
+.hero p{margin:6px 0 0; color:var(--muted); font-size:14px}
+
+/* route */
+.route{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:12px; padding:18px 22px 4px}
+.port b{display:block; font-family:var(--display); font-weight:700; font-size:34px; line-height:1; letter-spacing:.02em}
+.port span{display:block; margin-top:6px; font-size:12px; color:var(--muted)}
+.port.to{text-align:right}
+.port.to .globe{display:block; width:68px; height:68px; margin:-17px -8px -17px auto; color:var(--tile)}
+.path{position:relative; height:2px; background-image:linear-gradient(90deg, var(--line) 50%, transparent 0); background-size:10px 2px; margin-bottom:18px}
+.path svg{position:absolute; left:50%; top:50%; width:22px; height:22px; transform:translate(-50%,-50%); background:var(--card); padding:0 3px; box-sizing:content-box; fill:var(--ink)}
+
+.fields{display:grid; grid-template-columns:1fr 1fr; gap:14px 16px; padding:16px 22px 20px}
+.field dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.field dd{margin:2px 0 0; font-weight:600; font-size:15px}
+
+/* tear line */
+.tear{position:relative; height:26px}
+.tear::before,.tear::after{content:""; position:absolute; top:0; width:26px; height:26px; border-radius:50%; background:var(--bg)}
+.tear::before{left:-13px} .tear::after{right:-13px}
+.tear i{position:absolute; left:22px; right:22px; top:12px; border-top:2px dashed var(--line)}
+
+/* actions */
+.section{padding:6px 22px 20px; display:grid; gap:12px}
+.save{display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:52px; border:0; border-radius:14px;
+  background:var(--tile); color:var(--on-tile); font:600 16px/1 var(--body); cursor:pointer; transition:transform .15s, filter .15s}
+.save:hover{filter:brightness(1.06)} .save:active{transform:scale(.98)}
+.save svg{width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+
+.quick{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:8px}
+.quick a{display:grid; justify-items:center; gap:6px; padding:12px 4px 10px; border-radius:14px; border:1px solid var(--line);
+  text-decoration:none; font-size:12px; font-weight:500; color:var(--ink); transition:border-color .15s, background .15s}
+.quick a:hover{border-color:var(--tile); background:var(--tile-soft)}
+.quick svg{width:22px; height:22px; fill:none; stroke:var(--tile); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+
+.lines{display:grid; border:1px solid var(--line); border-radius:14px}
+.line{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 10px 10px 14px}
+.line + .line{border-top:1px solid var(--line)}
+.line div{min-width:0}
+.line small{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.line span{display:block; font-weight:600; overflow-wrap:anywhere; user-select:all; font-variant-numeric:tabular-nums}
+.copy{flex:none; border:1px solid var(--line); background:transparent; color:var(--ink); border-radius:10px; padding:7px 11px; font:500 13px var(--body); cursor:pointer}
+.copy:hover{border-color:var(--tile); color:var(--tile)}
+.copy.done{background:var(--tile); border-color:var(--tile); color:var(--on-tile)}
+
+/* blog */
+.h2{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:6px 0 0}
+.h2 h2{margin:0; font-family:var(--display); font-weight:500; font-size:16px}
+.h2 a{font-family:var(--mono); font-size:12.5px; color:var(--tile); text-decoration:none}
+.posts{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:6px}
+.post{aspect-ratio:4/5; max-width:100%; border-radius:12px; display:flex; align-items:flex-end; padding:8px; color:#fff;
+  font-size:12px; font-weight:600; text-shadow:0 1px 3px rgba(0,0,0,.45); text-decoration:none; position:relative; overflow:hidden}
+.post img{position:absolute; inset:0; width:100%; height:100%; max-width:none; object-fit:cover; z-index:0}
+.post::before{content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, transparent 45%, rgba(0,0,0,.45))}
+.post span{position:relative; z-index:2}
+.p1{background:radial-gradient(circle at 70% 30%, #F7C873 0 14%, transparent 15%), linear-gradient(180deg,#F08A5D 0%,#B83B5E 60%,#3D2C5E 100%)}
+.p2{background:radial-gradient(ellipse at 50% 85%, #F3E3B5 0 22%, transparent 23%), linear-gradient(180deg,#7FD6E8 0%,#22A6B3 50%,#0B6E7D 100%)}
+.p3{background:linear-gradient(160deg,#F5D9A8 0%,#E2A55B 45%,#9A5B2E 100%)}
+.ig-btn{display:flex; align-items:center; justify-content:center; gap:8px; min-height:46px; border-radius:14px; border:1.5px solid var(--ink); text-decoration:none; font-weight:600}
+.ig-btn:hover{background:var(--ink); color:var(--card)}
+.ig-btn svg{width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2}
+
+/* destinations */
+.dests{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.dest{display:flex; align-items:center; gap:10px; padding:9px 12px; border:1px solid var(--line); border-radius:12px; min-width:0}
+.dest b{font-family:var(--mono); font-weight:700; font-size:13px; color:var(--tile); letter-spacing:.06em}
+.dest span{font-size:13.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+
+/* footer */
+.foot{padding:4px 22px 22px; display:grid; gap:8px; justify-items:center}
+.barcode{display:flex; align-items:stretch; gap:2px; height:44px; width:100%; max-width:300px; overflow:hidden}
+.barcode i{background:var(--ink); flex:none}
+.foot small{font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--muted); text-align:center}
+.tap{max-width:430px; margin:16px auto 0; text-align:center; color:var(--muted); font-size:12.5px}
+
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
 </head>
-<body class="font-sans antialiased text-gray-800">
+<body>
 
-    <!-- Навигация -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-500" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
-                <div class="flex-shrink-0 flex items-center gap-4 cursor-pointer">
-                    <!-- Элегантный логотип (иконка колонны/щита) -->
-                    <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14v6"></path></svg>
-                    <div class="flex flex-col">
-                        <span class="font-serif text-2xl font-semibold tracking-wider text-navy uppercase leading-none">Wisdom</span>
-                        <span class="font-sans text-[0.6rem] tracking-[0.3em] text-gold uppercase mt-1">Private School</span>
-                    </div>
-                </div>
-                <div class="hidden md:flex space-x-10 items-center">
-                    <a href="#philosophy" class="font-sans text-xs tracking-[0.15em] text-navy hover:text-gold transition-colors uppercase">Философия</a>
-                    <a href="#privileges" class="font-sans text-xs tracking-[0.15em] text-navy hover:text-gold transition-colors uppercase">Привилегии</a>
-                    <a href="#alumni" class="font-sans text-xs tracking-[0.15em] text-navy hover:text-gold transition-colors uppercase">Наследие</a>
-                    <a href="#admission" class="inline-flex items-center justify-center px-8 py-3 bg-navy text-white text-xs tracking-[0.15em] uppercase hover:bg-gold transition-all duration-500">
-                        Подать заявку
-                    </a>
-                </div>
-            </div>
-        </div>
+<main class="pass">
+  <header class="band">
+    <span class="brand">INTOUR TRAVEL</span>
+    <small>Boarding pass</small>
+  </header>
+
+  <section class="hero">
+    <div class="stamp" aria-hidden="true">ZG</div>
+    <div>
+      <h1>Zafar Gafurov</h1>
+      <p>Тур-агент и тревел-блогер. Подберу тур под ваш бюджет и даты.</p>
+    </div>
+  </section>
+
+  <div class="route" aria-label="Из Ташкента в любую точку мира">
+    <div class="port"><b>TAS</b><span>Ташкент</span></div>
+    <div class="path" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)"/></svg>
+    </div>
+    <div class="port to">
+      <svg class="globe" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <defs>
+          <filter id="sketch" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="7"/>
+            <feDisplacementMap in="SourceGraphic" scale="0.7"/>
+          </filter>
+          <pattern id="hatch" width="1.3" height="1.3" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+            <path d="M0 0V1.3" stroke="currentColor" stroke-width=".4"/>
+          </pattern>
+          <path id="land" d="M28.6,41.5L28.3,41.5L28.4,41.4L28.5,41.4L28.7,41.4ZM24.6,35.3L24.7,35.6L24.8,35.8L24.7,35.9L24.7,36L24.6,35.8L24.5,35.9L24.6,36.1L24.6,36.2L24.5,36.2L24.4,36.4L24.3,36.7L24.2,37L24,37.5L23.9,37.8L23.7,38L23.5,38.1L23.2,38.2L23.1,38.1L22.8,38L22.7,37.9L22.7,37.7L22.6,37.5L22.6,37.4L22.6,37.2L22.8,37.2L22.8,37.1L22.9,36.9L22.9,36.8L22.8,36.7L22.8,36.5L22.8,36.3L22.9,36.2L22.9,36L23,36L23.2,35.9L23.3,35.9L23.5,35.9L23.6,35.8L23.9,35.6L24,35.5L24,35.4L24.1,35.4L24.3,35.2L24.3,35.1L24.4,34.9L24.5,35.1L24.6,35.2ZM38.7,35.4L38.5,35.6L38.4,35.8L38.3,35.9L38.2,35.9L38.2,36L38.3,35.9L38.3,35.8L38.4,35.7L38.4,35.6L38.6,35.5L38.7,35.4L38.8,35.2L38.8,35.1L38.9,34.9L39,34.8L39,34.7L39.1,34.5L39.1,34.4L39.2,34.3L39.2,34.4L39.3,34.2L39.3,34.3L39.3,34.1L39.4,34L39.4,33.9L39.5,33.7L39.5,33.6L39.6,33.5L39.7,33.4L39.8,33.1L39.7,33.3L39.9,33.1L40,32.9L40.1,32.8L40.2,32.6L40.3,32.5L40.4,32.3L40.5,32.2L40.5,32.1L40.6,32.1L40.6,32L40.7,31.8L40.8,31.6L40.9,31.5L41,31.3L41,31.1L41.1,31L41.2,30.7L41.2,30.9L41.2,30.8L41.3,30.7L41.3,30.5L41.4,30.3L41.5,30.1L41.5,29.9L41.6,29.8L41.6,29.7L41.7,29.6L41.7,29.5L41.7,29.6L41.8,29.5L41.8,29.3L41.9,29L41.9,28.9L42,28.6L42.1,28.5L42.1,28.4L42.1,28.3L41.9,28.9L41.8,29.5L41.6,30.1L41.3,30.8L41.1,31.4L40.8,31.9L40.5,32.5L40.2,33.1L39.9,33.7L39.5,34.2L39.2,34.7L38.8,35.3ZM41.5,29.2L41.4,29.3L41.3,29.3L41.4,29.1L41.5,29.1ZM41.8,28.7L41.7,28.9L41.7,28.8L41.8,28.6L41.9,28.3L41.9,28.2L42,28.1L42,28L42.1,27.9L42,28L42,28.3L41.9,28.4ZM41.3,29L41.4,28.9L41.4,29L41.3,29.2L41.2,29.3L41.1,29.4L41.2,29.2L41.2,29.1ZM41.8,28.3L41.7,28.5L41.6,28.8L41.5,28.9L41.5,28.8L41.6,28.7L41.7,28.6ZM40.1,29.7L40.4,29.5L40.4,29.4L40.7,29.3L40.7,29.4L40.9,29.3L41,29.3L40.9,29.6L40.7,29.6L40.6,29.7L40.5,29.8L40.3,29.8L40.2,29.9L40.1,29.9L40,30L39.7,30.1L39.7,30L39.6,30.1L39.7,29.7L39.9,29.6L40,29.6L40.1,29.6ZM42.5,26.3L42.4,26.5L42.5,26.3L42.5,26.2L42.5,26.1ZM42.2,26.4L42.2,26.6L42.2,26.5L42.2,26.4ZM42.4,25.9L42.4,26.1L42.3,26.2L42.3,26.3L42.3,26.1L42.4,26ZM42.5,25.6L42.5,25.7L42.5,25.6L42.5,25.8L42.5,25.9L42.5,25.8L42.5,25.7L42.5,25.6L42.5,25.4L42.5,25.3L42.5,25.2L42.5,25.4L42.5,25.3L42.5,25.4L42.4,25.3L42.5,25L42.5,24.9L42.6,24.8L42.6,24.9L42.5,25.3L42.6,24.9L42.6,24.7L42.6,25.3ZM42.1,25.2L42.1,25.6L42,25.8L41.9,25.9L41.8,26.1L41.7,26.2L41.7,26.5L41.8,26.6L41.8,26.4L42,26.1L42,26.2L41.9,26.3L41.9,26.5L41.8,26.7L41.9,27L41.9,27.1L41.9,27.3L41.9,27.5L41.8,27.7L41.8,27.6L41.9,27.3L41.8,27.5L41.8,27.4L41.7,27.3L41.8,27L41.7,27.2L41.7,27.5L41.6,27.9L41.6,28L41.5,28L41.6,27.7L41.6,27.4L41.6,27.5L41.5,27.3L41.6,27.1L41.6,26.8L41.7,26.3L41.7,26.2L41.8,25.8L42,25.7L42.1,25.5L42.1,25.2ZM42.4,24.9L42.4,25.2L42.3,25.2L42.3,25.4L42.3,25.5L42.3,25.6L42.3,25.4L42.3,25.1L42.3,24.8L42.3,24.7L42.3,24.8ZM39.7,29.7L39.5,29.9L39.3,29.7L39.1,29.6L39,29.5L38.9,29.3L38.8,29.2L38.7,28.8L38.5,28.7L38.4,28.5L38.4,28.3L38.2,28.2L38.1,28L37.9,27.9L37.6,27.6L37.6,27.5L37.7,27.4L38.1,27.3L38.3,27.5L38.5,27.7L38.6,27.7L38.8,28L39,27.9L39.1,28L39.3,28.2L39.4,28.2L39.3,28.5L39.4,28.5L39.5,28.5L39.5,28.7L39.6,28.8L39.7,28.8L39.8,28.9L39.7,29.3ZM41.5,26.1L41.6,26.2L41.5,26.4L41.4,26.6L41.4,26.9L41.3,27.2L41.3,27.5L41.2,28L41.2,27.9L41.1,28.2L41,28.1L40.9,28.1L40.7,28.3L40.7,28.2L40.6,28.3L40.4,28.4L40.4,28L40.3,27.8L40.3,27.6L40.3,27.3L40.4,27L40.5,27L40.6,26.9L40.6,26.6L40.7,26.5L40.8,26.3L40.9,26L41,25.7L41,25.5L41.1,25.3L41.2,25L41.2,24.7L41.3,24.6L41.3,24.7L41.3,24.8L41.4,24.8L41.5,24.8L41.5,25L41.5,25.1L41.5,25.2L41.4,25.4L41.4,25.7L41.5,25.9ZM42,23L42.1,23.2L42.1,23.4L42.1,23.7L42,23.4L42,23.6L42.1,23.8L42.1,24L42,24L41.9,23.8L41.9,23.6L41.8,23.5L41.8,23.7L41.8,23.8L41.8,24L41.7,24L41.7,23.6L41.8,23.5L41.8,23.3L41.8,23.4L41.9,23.2L41.9,23.1L41.9,23L41.9,22.7L42,22.8L42,22.9ZM34.1,28.5L33.9,28.6L33.8,28.4L33.7,27.9L33.8,27.4L34,27.5L34.1,27.7L34.3,28L34.2,28.3ZM41.8,22.8L41.7,22.9L41.8,23.1L41.7,23.3L41.7,23.1L41.7,23L41.7,22.9L41.6,22.7L41.7,22.6L41.7,22.9L41.7,22.5ZM41.3,23.7L41.2,24.2L41.2,23.9L41.3,23.6L41.3,23.4L41.3,23L41.4,23.2L41.3,23.5ZM41.5,22.6L41.6,22.6L41.6,22.5L41.6,22.6L41.6,22.8L41.6,23L41.6,22.8L41.5,22.7ZM41.8,22L41.8,22.3L41.8,22.4L41.8,22.6L41.8,22.7L41.8,22.5L41.7,22.4L41.8,22.3L41.7,22.2L41.6,22.1L41.7,21.9ZM41.4,22.2L41.4,22.5L41.3,22.4L41.2,22.3L41.3,22.2ZM40.9,20.7L41,20.7L41,20.6L41,20.8L41.1,20.9L41.2,21.2L41.2,21.4L41.2,21.6L41.3,21.8L41.4,21.8L41.4,21.7L41.5,21.7L41.6,21.9L41.6,22.1L41.5,22L41.5,21.9L41.5,22.1L41.4,22L41.3,22.1L41.2,22.1L41.2,22L41.2,21.9L41.2,21.8L41.2,22L41.1,21.9L41,21.7L41,21.5L40.9,21L40.8,20.7ZM39.6,21.9L39.5,22.1L39.4,22.1L39.3,21.9L39.3,21.7L39.5,21.5L39.5,21.4L39.6,21.5L39.6,21.7ZM40.4,19.4L40.5,19.7L40.3,19.5L40.2,19.3L40.2,19L40.1,18.7L40.2,18.7L40.3,18.9ZM39.4,14.8L39.4,14.9L39.5,15.1L39.5,15.2L39.6,15.4L39.5,15.4L39.4,15.2L39.3,15L39.4,15L39.3,14.9ZM20.5,20.1L20.3,20.2L20.3,20.3L20,20.4L19.9,20.3L19.9,20.2L20,20.2L20.1,20.1L20.2,20.1ZM17.8,19.7L17.9,19.8L18.1,19.8L18.3,19.9L18.2,19.9L18.4,19.9L18.3,20L18,20L18,19.9L17.7,19.8ZM16.2,18.5L16,18.7L16,18.8L15.9,19L15.8,18.8L15.7,18.7L15.4,18.5L15.5,18.4L15.8,18.5L16,18.5ZM15.2,17.2L15.3,17.5L15.1,17.9L15,17.8L14.9,17.9L14.8,17.8L15,17.4L15,17.3L15.1,17.3ZM38.8,13.4L39,13.7L39.1,13.8L39.2,14L39.3,14.2L39.3,14.4L39.5,14.9L39.4,14.9L39.3,14.7L39.3,14.9L39.4,15.2L39.3,15.3L39.5,15.4L39.8,15.9L39.8,16.1L39.7,16L39.6,15.8L39.5,15.8L39.4,15.6L39.4,15.4L39.3,15.2L39.2,15L39.1,14.7L39.1,14.4L38.8,13.8L38.9,13.9L38.7,13.5L38.6,13.3L38.4,13L38.1,12.8L38,12.6L37.9,12.4L38.2,12.7L38.4,12.9L38.6,13.2ZM15.4,17L15.3,17.2L15.2,17.1L15.3,16.9L15.3,16.8L15.5,16.7ZM37.3,11.6L37.2,11.4L37.4,11.6L37.5,11.8L37.8,12.1L37.6,12.1L37.9,12.4L37.9,12.5L37.7,12.3L37.5,12.1L37.5,12L37.2,11.7L37,11.5L37.2,11.6ZM12.1,9.7L12,9.8L12,9.9L11.9,9.9L12.1,9.7L12.2,9.7L12.2,9.6ZM12.5,9.5L12.6,9.4L12.7,9.3L12.9,9.1L12.9,9.2L12.8,9.3L12.6,9.4ZM12.6,9.7L12.4,9.8L12.4,9.9L12.3,9.9L12.2,10L12.1,10.1L11.9,10.2L11.9,10.3L11.8,10.4L11.7,10.5L11.5,10.6L11.6,10.5L11.7,10.4L11.8,10.3L11.6,10.4L11.7,10.3L11.9,10.2L11.9,10.1L12,9.9L12.1,9.9L12.2,9.8L12.3,9.8L12.6,9.6L12.8,9.5L12.8,9.6L12.7,9.6ZM35.7,10.4L36.1,10.6L36.1,10.7L36.4,11L36.7,11.1L36.8,11.2L36.7,11.2L36.9,11.4L36.7,11.3L36.5,11.1L36.2,10.9L36,10.7L35.7,10.5L35.4,10.3L35.1,10.1L35,9.9L34.8,9.9L34.8,9.8L35,9.9L35.2,10.1L35.5,10.2ZM14.7,13.2L14.4,13.3L14.3,13.1L14.6,12.9L14.7,12.7L15,12.6L15.2,12.5L15.3,12.5L15.3,12.8L15.1,12.9L15,13.1ZM17.9,13.5L17.7,13.6L17.6,13.5L17.7,13.3L18,13.3ZM16.5,12L16.1,12.2L16.3,12.2L16.4,12.2L16.2,12.4L15.9,12.6L16,12.6L15.9,13L15.9,13.1L15.8,13.4L15.7,13.5L15.9,13.6L15.7,13.8L15.6,13.8L15.6,14L15.3,14.1L15.2,14L14.9,13.9L14.8,13.9L14.7,13.9L14.6,13.9L14.4,13.9L14.4,13.8L14.8,13.7L14.9,13.7L14.8,13.5L14.8,13.4L15,13.4L15.1,13.2L15.2,13.1L15.4,13.2L15.5,13.1L15.6,12.9L15.5,12.8L15.5,12.7L15.6,12.6L15.6,12.5L15.5,12.6L15.7,12.4L15.7,12.2L16,12L16.3,11.9ZM17.1,6.8L17,6.9L17.1,6.8L17.2,6.8ZM17.5,6.7L17.5,6.6L17.6,6.6L17.5,6.7ZM29.3,6.2L29.2,6.2L29.1,6.1L29,6.1L29.1,6.1L29.2,6.2L29.3,6.2ZM18.4,6.4L18.3,6.4L18.2,6.5L18,6.5L17.8,6.6L17.7,6.6L17.5,6.7L17.7,6.6L17.9,6.5L18,6.4L18.2,6.4L18.3,6.4L18.5,6.4ZM17.4,9.8L17.2,9.9L17.1,10.1L16.8,10.2L16.5,10.1L16.4,10.1L16.3,10L16.3,9.8L16.5,9.8L16.5,9.6L16.6,9.7L16.7,9.6L16.7,9.5L16.9,9.4L17,9.5L16.9,9.6L17.1,9.6L17.1,9.7L17.3,9.7ZM18,6.7L18.1,6.7L18.2,6.6L18.3,6.6L18.3,6.7L18.2,6.7L18.1,6.7L18,6.7ZM29,6.3L28.9,6.3L28.9,6.2L29,6.2L28.9,6.2L28.7,6.1L28.7,6L28.8,6.1L29,6.2L29.2,6.2L29.3,6.2L29.4,6.2L29.4,6.3L29.5,6.3L29.4,6.3L29.5,6.3L29.6,6.4L29.5,6.4L29.6,6.4L29.7,6.4L29.8,6.5L30.1,6.5L30.2,6.6L30.3,6.6L30.4,6.6L30.5,6.6L30.6,6.7L31.1,6.9L31.2,7L31.5,7.1L31.7,7.2L31.9,7.3L31.8,7.3L32.2,7.5L32.4,7.6L32.4,7.7L32.6,7.8L32.9,7.9L33,8L33,7.9L33.4,8.1L33.5,8.2L33.7,8.3L33.8,8.3L34,8.5L34.3,8.7L34.5,8.8L34.8,9L35.1,9.3L34.9,9.2L34.6,9L34.1,8.7L33.7,8.5L33.5,8.4L33.4,8.3L33.2,8.2L32.8,7.9L32.4,7.7L32.1,7.5L31.7,7.4L31.8,7.4L32,7.5L32.5,7.8L32.2,7.7L32.4,7.9L33,8.3L33.1,8.3L33.3,8.5L33.4,8.6L33.2,8.5L33.2,8.6L33.4,8.7L33.4,8.9L33.5,9.1L34.1,9.7L34.7,10.3L34.8,10.2L34.9,10.3L35,10.3L34.9,10.1L35.2,10.1L35.4,10.3L35.6,10.5L35.9,10.8L36.3,11.1L36.7,11.5L36.8,11.7L37.1,12.1L37.4,12.4L37.5,12.6L37.6,12.9L37.5,12.9L37.6,13.2L37.7,13.3L37.6,13.3L37.7,13.4L37.8,13.5L37.9,13.7L37.9,13.8L38,13.9L38,14L38,14.1L38.1,14.2L38.1,14.3L38.2,14.3L38.3,14.4L38.6,14.6L38.7,14.7L39,15L39,15.2L39,15.3L39.1,15.5L39,15.6L38.9,15.5L38.8,15.3L38.6,15.1L38.6,15L38.4,14.8L38.3,14.8L38.4,14.9L38.3,14.9L38.2,14.9L38.2,14.7L38.1,14.7L38,14.5L37.9,14.5L37.8,14.7L37.9,14.9L37.8,15L37.8,14.9L37.7,14.8L37.6,14.6L37.5,14.5L37.5,14.6L37.5,14.9L37.6,15.2L37.5,15.3L37.6,15.4L37.8,15.6L37.9,15.5L38,15.6L38.1,15.6L38,15.3L38.2,15.3L38.3,15.4L38.3,15.6L38.3,15.8L38.4,16L38.4,16.3L38.6,16.3L38.8,16.5L39,16.7L39.2,16.9L39.3,17.1L39.3,17.2L39.4,17.3L39.5,17.3L39.6,17.6L39.7,17.8L39.7,17.9L39.8,18.3L39.9,18.8L40,19.2L39.9,19.6L39.9,20L39.8,20.2L39.7,20.4L39.7,20.3L39.7,20.6L39.5,20.9L39.4,21L39.5,21.4L39.4,21.5L39.3,21.3L39.3,21.1L39,21.2L39,21.3L38.9,21.7L38.8,22L38.9,22.3L39.1,22.5L39.3,22.8L39.5,22.9L39.7,23.1L39.9,23.6L40,24.1L39.9,24.4L39.7,24.8L39.6,25.1L39.5,25.5L39.4,25.4L39.4,25.1L39.2,25L39.1,25.1L39,25L38.8,24.7L38.6,24.7L38.5,24.7L38.4,24.5L38.3,24.6L38.3,24.9L38.3,25.4L38.3,25.7L38.3,25.9L38.4,25.9L38.6,26.1L38.6,26.4L38.8,26.5L38.9,26.5L39,26.6L39.2,26.7L39.3,26.8L39.3,27L39.3,27.2L39.3,27.3L39.3,27.5L39.4,27.5L39.5,27.7L39.5,27.8L39.3,27.9L39.1,27.8L38.9,27.7L38.9,27.5L38.8,27.4L38.7,27.2L38.6,27L38.6,26.8L38.6,26.7L38.5,26.6L38.4,26.5L38.3,26.4L38.2,26.3L38.2,26.5L38.1,26.3L38.1,26.1L38.1,25.8L38.1,25.6L38.1,25.3L38,25.2L38,24.8L37.9,24.7L37.7,24.4L37.6,24L37.5,23.8L37.4,24L37.2,24.3L37,24.4L36.9,24.3L36.9,23.9L36.8,23.7L36.5,23.4L36.5,23.2L36.4,23.3L36.2,23.1L36.1,22.9L36,22.8L35.9,22.6L35.8,22.5L35.6,22.6L35.6,22.7L35.6,22.9L35.5,22.8L35.5,22.9L35.4,22.9L35.3,22.9L35.3,23L35.2,23.1L34.9,23.2L35,23.5L34.9,23.7L34.6,24L34.4,24.5L34.2,24.7L34,25L34,25.2L33.9,25.3L33.7,25.4L33.6,25.5L33.5,25.8L33.6,26.1L33.7,26.4L33.6,26.7L33.7,27.3L33.5,27.3L33.4,27.6L33.5,27.7L33.3,27.8L33.2,28L33.1,28.2L32.8,27.9L32.6,27.5L32.5,27.2L32.4,27.1L32.2,26.8L32.1,26.5L32,26.3L31.7,25.9L31.5,25.3L31.4,24.9L31.3,24.5L31.2,24.2L30.8,24.5L30.6,24.5L30.2,24.1L30.3,24L30.2,23.9L29.9,23.7L29.7,23.6L29.5,23.4L29.3,23.2L28.8,23.3L28.3,23.4L27.9,23.5L27.4,23.4L27.1,23.4L26.7,23.3L26.6,23L26.4,22.9L26.2,23L25.9,23.1L25.6,23.1L25.3,22.8L25,22.7L24.8,22.4L24.6,22L24.4,22.1L24.3,22L24.2,22.1L24,22.1L24.1,22.2L24,22.3L24.1,22.5L24.2,22.8L24.4,22.9L24.4,23L24.6,23.1L24.6,23.3L24.6,23.4L24.7,23.5L24.7,23.6L24.8,23.7L24.8,23.5L24.9,23.3L25,23.3L25,23.4L25.1,23.6L25,23.8L25.1,23.9L25.1,24L25.4,23.9L25.6,23.9L25.8,23.9L26,23.7L26.2,23.5L26.3,23.3L26.4,23.1L26.5,23.2L26.4,23.3L26.4,23.4L26.5,23.6L26.6,23.8L26.8,23.9L27,24L27.2,24L27.3,24.2L27.4,24.3L27.5,24.3L27.5,24.4L27.4,24.6L27.4,24.7L27.3,24.8L27.2,25L27,25L27,25.1L26.9,25.3L27,25.5L26.8,25.5L26.6,25.7L26.6,25.8L26.6,25.9L26.4,25.9L26.2,26L26.2,26.1L26.1,26.2L25.9,26.2L25.7,26.3L25.6,26.4L25.4,26.4L25.3,26.6L25.3,26.7L25,26.8L24.5,27L24.2,27.2L24.1,27.2L24,27.2L23.8,27.4L23.6,27.4L23.3,27.4L23.2,27.5L23.1,27.6L23,27.6L22.9,27.6L22.8,27.7L22.6,27.6L22.5,27.5L22.5,27.3L22.5,27.2L22.4,26.9L22.3,26.8L22.4,26.8L22.3,26.6L22.4,26.6L22.4,26.4L22.3,26.3L22.2,26.2L22.2,26.1L22.1,26L21.9,25.7L21.8,25.4L21.6,25.2L21.5,25.1L21.3,24.8L21.3,24.6L21.3,24.4L21.2,24L21.1,23.9L20.9,23.8L20.8,23.6L20.8,23.5L20.8,23.4L20.7,23.3L20.6,23L20.5,22.7L20.3,22.5L20.2,22.5L20.3,22.3L20.3,22.2L20.3,22.1L20.3,22L20.2,22.2L20.2,22.4L20.1,22.6L20,22.6L19.9,22.5L19.8,22.3L19.7,21.9L19.6,21.9L19.7,22.2L19.8,22.6L20,23.1L20.1,23.3L20.2,23.5L20.4,23.9L20.3,23.9L20.3,24.1L20.6,24.4L20.7,24.5L20.7,24.8L20.7,24.9L20.7,25.2L20.8,25.6L20.9,25.7L21.1,25.8L21.2,26.2L21.3,26.5L21.4,26.7L21.9,27L22,27.2L22.2,27.4L22.3,27.5L22.4,27.6L22.5,27.7L22.5,27.9L22.3,27.9L22.5,28L22.6,28.1L22.6,28.2L22.8,28.3L22.9,28.3L23.2,28.3L23.6,28.2L23.8,28.1L24,28.1L24.1,28.1L24.3,28.1L24.4,28L24.6,28L24.7,28L24.9,27.9L25,27.8L25,27.9L25,28.1L25,28.3L24.9,28.4L24.8,28.7L24.7,29.1L24.5,29.5L24.2,30L23.9,30.3L23.5,30.7L23.2,30.9L22.7,31.2L22.4,31.5L22.1,31.8L22,31.9L21.9,32L21.7,32.1L21.6,32.2L21.5,32.3L21.5,32.5L21.4,32.6L21.3,32.8L21.2,32.8L21,33.2L21,33.3L21.3,33.5L21.2,33.7L21.2,33.8L21.2,33.9L21.3,34.1L21.4,34.4L21.6,34.4L21.6,34.5L21.6,34.8L21.6,35L21.7,35.4L21.7,35.6L21.7,35.7L21.5,35.9L21.4,36.1L21.1,36.1L20.7,36.2L20.4,36.5L20.3,36.5L20.1,36.6L20,36.7L20,36.8L20.2,37L20.2,37.2L20.3,37.2L20.3,37.5L20.3,37.6L20.3,37.7L20.2,37.8L20,37.8L19.7,37.9L19.5,37.9L19.6,38L19.7,38.1L19.7,38.2L19.6,38.3L19.6,38.5L19.6,38.6L19.4,38.6L19.4,38.7L19.3,38.7L19.2,38.8L19.1,38.9L18.9,39.1L18.7,39.2L18.5,39.2L18.3,39.3L18.2,39.3L18,39.2L17.9,39.3L17.6,39.2L17.5,39.2L17.4,39.1L17.2,39.2L17,39.1L16.8,39.2L16.7,39.2L16.6,39.1L16.5,39.1L16.4,39L16.3,38.9L16.3,38.8L16.1,38.7L16.2,38.7L16.1,38.5L15.9,38.3L15.7,38.1L15.4,37.8L15.2,37.6L15,37.4L14.9,37.2L14.8,37L14.6,36.6L14.5,36.4L14.4,36.2L14.3,36.1L14.1,35.9L13.9,35.5L13.8,35.4L13.6,35.1L13.5,34.9L13.4,34.7L13.4,34.5L13.5,34.3L13.5,34.2L13.5,34L13.5,33.9L13.7,33.7L13.7,33.5L13.7,33.3L13.6,33.2L13.5,33L13.4,32.8L13.5,32.7L13.4,32.4L13.3,32.2L13.2,32L13.2,31.9L13.2,31.8L13.1,31.6L12.9,31.2L12.6,30.8L12.4,30.5L12.2,30.2L12.3,30.1L12.3,30L12.4,29.8L12.4,29.6L12.5,29.3L12.5,29L12.4,28.8L12.3,28.7L12.3,28.6L12.2,28.5L12.2,28.4L11.9,28.4L11.8,28.4L11.6,28.3L11.4,28.1L11.4,27.8L11.2,27.6L11.1,27.5L10.9,27.4L10.7,27.4L10.5,27.4L10.1,27.4L10,27.5L9.8,27.5L9.6,27.3L9.5,27.2L9.4,27.1L9.3,27L9,27L8.9,27L8.7,27L8.6,26.9L8.5,26.7L8.3,26.3L8.2,26.1L8.1,25.8L8,25.6L7.9,25.3L7.9,25.2L7.9,25L7.8,24.7L7.8,24.6L7.8,24.5L7.8,24.4L7.8,24.3L7.7,24.2L7.7,24.1L7.7,23.9L7.6,23.8L7.6,23.7L7.6,23.6L7.6,23.5L7.6,23.3L7.7,23.1L7.7,22.9L7.6,22.7L7.7,22.7L7.8,22.5L7.9,22.4L7.9,22.2L8,22.1L8.1,21.9L8.2,21.5L8.2,21.4L8.3,21.2L8.3,21.1L8.3,20.9L8.3,20.8L8.4,20.6L8.5,20.5L8.6,20.4L8.7,20.2L8.8,20.1L8.9,20.1L9,19.9L9.1,19.8L9.2,19.6L9.3,19.6L9.6,19.4L9.7,19.3L9.8,19.4L10,19.2L10.2,19.2L10.4,19L10.5,18.7L10.7,18.4L10.8,18.3L11,18.2L11.2,18.1L11.4,18.1L11.7,17.8L11.8,17.7L11.9,17.7L11.9,17.9L12.1,18L12.3,18.1L12.3,18.2L12.6,18.1L12.8,18.1L12.9,18.1L13.2,18L13.5,18.1L13.8,18.2L13.9,18.3L14.1,18.3L14.3,18.3L14.4,18.4L14.5,18.4L14.8,18.4L14.9,18.5L14.9,18.6L15.1,18.6L14.9,18.8L14.9,18.9L14.9,19L14.8,19.2L14.6,19.4L14.6,19.5L14.7,19.6L14.7,19.7L14.7,19.8L15,20L15.1,20L15.2,20.1L15.5,20.3L15.5,20.6L15.7,20.7L16,20.9L16.2,21.2L16.4,21.1L16.5,21L16.5,20.7L16.6,20.6L16.9,20.5L17,20.5L17.4,20.6L17.4,20.8L17.5,20.8L17.6,20.8L17.8,20.9L17.9,21L18.2,21.1L18.4,21.2L18.7,21.4L18.8,21.4L19,21.3L19.1,21.3L19.4,21.3L19.5,21.3L19.6,21.5L19.7,21.4L19.9,21.5L20.1,21.5L20.2,21.5L20.3,21.4L20.4,21.2L20.5,21L20.5,20.9L20.7,20.7L20.8,20.4L20.8,20.2L20.9,20.1L20.8,19.9L20.9,19.8L20.8,19.8L20.6,19.7L20.4,19.9L20,19.9L19.8,19.7L19.5,19.6L19.5,19.8L19.3,19.8L19.1,19.6L18.8,19.5L18.7,19.2L18.6,19L18.8,18.8L18.7,18.6L19,18.4L19.4,18.4L19.5,18.2L19.9,18.3L20.3,18.1L20.5,18.1L20.9,18.1L21.3,18.4L21.6,18.5L21.9,18.5L22.1,18.5L22.4,18.4L22.5,18.2L22.4,18L22.3,17.9L22.2,17.9L22.1,17.8L21.8,17.5L21.6,17.3L21.4,17.2L21.6,17.1L21.8,16.9L21.7,16.8L22.1,16.7L22.1,16.6L21.9,16.6L21.7,16.6L21.5,16.7L21.3,16.7L21.1,16.8L21.1,17L21.2,17.1L21.4,17.1L21.3,17.2L21.1,17.2L20.8,17.4L20.6,17.3L20.7,17.2L20.5,17L20.8,16.9L20.7,16.8L20.4,16.7L20.4,16.6L20.2,16.6L20.1,16.8L19.9,17L19.9,17.1L19.7,17.1L19.5,17.4L19.4,17.5L19.2,17.7L19.3,17.9L19.3,18L19.4,18.2L19.1,18.2L19,18.3L18.8,18.4L18.7,18.3L18.7,18.2L18.6,18.2L18.5,18.1L18.2,18.2L18.3,18.4L18.2,18.4L18.1,18.4L18,18.2L17.9,18.2L17.9,18.4L18,18.6L17.9,18.6L18,18.8L18.1,18.9L18,19.1L17.8,19L17.9,19.1L17.7,19.1L17.7,19.4L17.6,19.4L17.4,19.2L17.4,19L17.4,18.8L17.4,18.6L17.3,18.4L17.3,18.3L17.3,18.2L17.2,18.1L17.2,17.9L17.3,17.7L17.4,17.7L17.4,17.6L17.3,17.6L17.3,17.5L17.2,17.4L17.1,17.2L17,17.1L16.9,17L16.8,16.7L16.8,16.5L16.8,16.4L16.7,16.4L16.6,16.5L16.6,16.4L16.6,16.3L16.7,16.3L16.7,16.2L16.6,16.2L16.4,16.2L16.3,16.4L16.3,16.6L16.4,16.8L16.4,17.1L16.5,17.4L16.7,17.4L16.7,17.5L16.6,17.5L16.7,17.7L16.9,17.8L17,18L17,18.1L16.9,18.2L16.8,18L16.7,17.9L16.5,18.1L16.6,18.2L16.6,18.4L16.5,18.4L16.3,18.6L16.2,18.6L16.2,18.5L16.3,18.4L16.4,18.3L16.3,18.1L16.3,17.9L16.2,17.7L16.1,17.7L16.1,17.5L16,17.4L15.9,17.3L15.8,17L15.7,16.8L15.8,16.5L15.7,16.5L15.6,16.3L15.5,16.3L15.3,16.4L15,16.5L14.7,16.3L14.4,16.3L14.3,16.5L14.2,16.6L14,16.8L13.7,16.7L13.6,16.8L13.4,16.9L13.3,17.1L13.2,17.3L13.1,17.4L12.9,17.6L12.8,17.6L12.5,17.7L12.3,17.6L12.2,17.6L12,17.6L11.9,17.7L11.9,17.6L11.8,17.5L11.9,17.3L11.8,17.2L11.7,17.2L11.6,17.1L11.5,17.1L11.7,16.9L11.8,16.7L11.7,16.7L11.8,16.5L11.9,16.4L12,16.3L12.1,16.2L12.2,16L12.3,15.9L12.3,15.8L12.4,15.7L12.5,15.5L12.5,15.4L12.9,15.3L13,15.5L13.2,15.6L13.3,15.7L13.4,15.7L13.7,15.9L13.8,15.7L14.2,15.2L14.3,14.9L14.3,14.7L14.1,14.5L14.2,14.3L14.5,14.3L14.6,14.5L14.8,14.2L14.9,14.3L15.3,14.3L15.5,14.1L15.7,14.1L15.8,14.1L16,14L16.3,13.7L16.6,13.7L16.7,13.7L16.8,13.7L16.9,13.7L16.9,13.8L17.1,13.7L17.1,13.6L17.2,13.4L17.2,13.3L17.4,13L17.5,13L17.6,12.9L17.7,12.9L17.8,12.9L18,12.8L17.9,13L17.8,13L17.8,13.1L17.8,13.2L17.7,13.3L17.7,13.2L17.5,13.4L17.4,13.5L17.4,13.6L17.5,13.7L17.4,13.8L17.6,13.8L17.7,13.8L17.8,13.9L17.9,14L18,14L18.3,13.9L18.6,13.9L18.7,13.9L18.7,14L18.9,14.1L19,13.9L19.2,13.9L19.3,13.7L19.4,13.5L19.5,13.3L19.7,13.3L19.8,13.5L19.9,13.5L20,13.3L20.1,13.2L20,13.2L20,13.1L20,12.9L20.2,12.9L20.5,12.9L20.6,13L20.8,13L21,12.9L20.9,12.7L20.6,12.7L20.3,12.7L20,12.7L20,12.6L19.9,12.5L20.1,12.2L20.1,12L20.3,11.9L20.5,11.8L20.9,11.6L21,11.5L21,11.4L20.9,11.3L20.7,11.3L20.5,11.4L20.4,11.6L20.1,11.7L19.7,11.9L19.4,12.2L19.4,12.4L19.5,12.6L19.2,12.8L19,12.8L18.7,13.3L18.5,13.5L18.3,13.4L18.1,13.6L17.9,13.5L18,13.3L18.1,13L18.2,12.6L18.2,12.4L17.8,12.6L17.6,12.6L17.5,12.4L17.6,12.1L18,11.6L18.3,11.5L18.7,11.4L19.1,11.3L19.6,11L20.1,10.7L20.4,10.5L20.9,10.3L21.2,10.3L21.3,10.3L21.6,10.2L21.8,10.2L22,10.2L22.2,10.4L22.1,10.5L22.1,10.6L22.3,10.5L22.4,10.7L22.7,10.8L23.1,11.1L23.1,11.2L23.1,11.3L23,11.5L22.7,11.5L22.2,11.3L22.1,11.3L22.3,11.5L22.2,11.9L22.3,11.9L22.4,12L22.5,11.9L22.4,11.8L22.5,11.7L22.8,11.9L23,11.8L22.9,11.6L23.2,11.4L23.4,11.4L23.5,11.5L23.6,11.4L23.5,11.2L23.5,11.1L23.5,10.9L23.8,11L23.9,11.2L23.7,11.2L23.7,11.3L23.8,11.4L24,11.3L24,11.2L24.3,11.1L24.7,10.9L24.8,10.9L24.7,11L24.8,11L24.9,11L25.1,10.9L25.3,10.8L25.4,11L25.5,10.8L25.4,10.7L25.4,10.6L25.7,10.6L25.9,10.7L26.4,10.9L26.4,10.8L26.3,10.6L26.1,10.6L26.1,10.5L26,10.3L25.9,10.3L26,10L26,9.8L26.3,9.8L26.4,9.9L26.4,10.1L26.5,10.2L26.6,10.3L26.8,10.6L27,10.7L27,10.9L27,11.2L27.1,11.2L27.1,11.1L27.2,11.1L27.2,10.9L27.2,10.8L27.1,10.7L27,10.6L26.9,10.6L26.8,10.4L26.7,10.2L26.5,10.1L26.6,9.9L26.5,9.8L26.5,9.7L26.6,9.8L26.7,10.1L26.9,10.1L26.7,9.9L26.8,9.8L27,9.8L27.2,9.8L27,9.7L26.8,9.5L26.9,9.4L27.1,9.4L27.2,9.3L27.1,9.2L27,9.1L27.1,9.1L27.1,8.9L27.2,8.8L27.3,8.7L27.4,8.7L27.4,8.6L27.5,8.6L27.4,8.5L27.3,8.4L27.3,8.3L27.4,8.3L27.5,8.4L27.6,8.3L27.7,8.4L27.7,8.3L27.8,8.3L28,8.2L28.2,8.3L28.3,8.3L28.3,8.4L28.4,8.6L28.5,8.6L28.7,8.6L28.9,8.6L28.8,8.6L28.8,8.5L29,8.4L29.1,8.5L29.3,8.3L29,8.2L29.1,8.2L29.2,8.1L29.4,8.1L29.6,8.2L29.7,8.2L29.9,8.3L30.1,8.2L29.8,8.1L29.9,8.1L29.8,8L29.9,7.9L29.9,7.8L29.6,7.8L29.5,7.7L29.6,7.4L29.7,7.4L29.9,7.3L29.7,7.1L29.8,7L30,7.1L29.9,7L29.8,6.9L29.8,6.8L29.6,6.8L29.8,6.7L29.6,6.7L29.5,6.7L29.3,6.6L29.2,6.5L29.1,6.5L29,6.4ZM24.3,18.5L24.4,18.7L24.5,18.7L24.6,18.8L24.4,18.8L24.4,19.1L24.3,19.2L24.2,19.2L24.2,19.4L24.3,19.6L24.6,19.7L24.7,19.8L25.1,19.9L25.5,19.8L25.5,19.7L25.5,19.5L25.5,19.2L25.3,19.1L25.3,18.9L25.2,18.8L25.2,18.6L25.4,18.6L25.6,18.5L25.5,18.4L25.4,18.2L25.2,18.3L25.2,18.5L25.1,18.3L25.1,18.2L25.1,18.1L25.1,18L24.8,17.9L24.7,17.6L24.5,17.5L24.5,17.4L24.8,17.5L24.8,17.3L24.9,17.2L25.1,17.2L25.2,16.9L25.1,16.8L24.9,16.8L24.7,16.7L24.5,16.8L24.2,16.9L24.1,17.1L23.9,17.1L23.7,17.5L23.9,17.7L23.9,17.9L24.1,18.3ZM20.1,6L20.1,5.9L20.2,5.9L20.3,5.9L20.5,5.8L20.5,5.9L20.3,5.9L20.2,5.9ZM28.4,6.3L28.3,6.2L28.4,6.2L28.5,6.3ZM15.1,7.6L15.3,7.6L15.5,7.5L15.4,7.5L15.5,7.5L15.6,7.5L15.7,7.4L16,7.3L16.3,7.1L16.4,7.1L16.6,7L17,6.9L16.8,7L16.7,7.1L16.5,7.2L16.3,7.3L16.2,7.3L16,7.4L15.8,7.5L15.5,7.7L15.4,7.7L15.2,7.8L15.2,7.9L15.4,7.8L15.5,7.8L15.2,7.9L14.8,8.2L14.4,8.4L14.3,8.4L14.1,8.6L13.9,8.7L13.7,8.9L13.6,9L13.4,9.1L13.3,9.2L13.2,9.3L12.9,9.5L12.8,9.5L12.8,9.4L12.7,9.4L12.8,9.3L13,9.1L13.1,9L13.2,8.9L13.1,9L13.1,8.9L13,9L12.9,9.1L13.4,8.7L14,8.3L14.5,8L15.1,7.7ZM12.8,9.1L12.9,9.1L12.8,9.2L12.6,9.3L12.6,9.4L12.3,9.6L12.1,9.7L11.9,9.9L11.8,10L12,9.9L11.8,10.1L11.7,10.2L11.6,10.2L11.7,10.1L11.6,10.1L11.7,10L11.9,9.9L12,9.8L12.1,9.7L12,9.8L12.5,9.3ZM5.4,25L5.4,25.1L5.5,25.6L5.5,26.1L5.6,26.2L5.6,26.4L5.6,26.5L5.7,26.9L5.7,27.1L5.8,27.6L5.8,27.7L5.8,27.9L5.7,27.3L5.6,26.6L5.5,26L5.4,25.3ZM28.9,6.1L28.8,6L28.6,6L28.5,6L28.4,5.9L28.3,5.9L28.2,5.9L28.1,5.9L28,5.8L27.9,5.8L28,5.8L27.8,5.8L27.9,5.8L28.1,5.9L28.2,5.9L28.4,5.9L28.5,6L28.3,5.9L28,5.9L27.9,5.8L28,5.9L27.7,5.8L27.8,5.8L27.8,5.9L27.9,5.9L27.8,5.9L27.6,5.8L27.4,5.8L27.3,5.8L27.1,5.8L27,5.8L26.8,5.7L26.7,5.7L26.5,5.7L26.4,5.7L26.3,5.7L26.3,5.6L26.1,5.6L26,5.6L25.9,5.6L25.7,5.5L25.5,5.5L25.4,5.5L25.3,5.5L25.1,5.5L25,5.5L24.8,5.5L24.6,5.4L24.5,5.4L24.4,5.4L24.3,5.4L24.1,5.4L23.9,5.4L23.8,5.5L23.7,5.4L23.6,5.5L23.5,5.5L23.3,5.5L23.2,5.5L23.1,5.5L23,5.5L22.8,5.5L22.6,5.5L22.3,5.5L22.2,5.5L22.1,5.5L21.9,5.6L22,5.5L21.8,5.6L21.5,5.6L21.4,5.6L21.2,5.6L21.1,5.7L21.3,5.6L21.3,5.7L21.1,5.7L20.9,5.7L20.8,5.7L20.7,5.8L20.4,5.8L20.3,5.8L20.1,5.9L20.2,5.9L20,5.9L19.8,6L19.9,6L19.8,6L19.9,6L20.1,6L20.3,5.9L20.5,5.9L20.5,6L20.4,6L20.2,6L19.9,6.1L19.9,6L19.7,6.1L19.5,6.1L19.3,6.2L19.2,6.2L18.9,6.3L19,6.3L19.1,6.3L19.4,6.3L19.2,6.3L19.1,6.4L18.9,6.4L18.8,6.4L18.7,6.4L18.5,6.5L18.4,6.5L18.4,6.4L18.5,6.4L18.7,6.3L18.6,6.3L18.5,6.3L18.4,6.3L18.5,6.3L18.4,6.3L18.5,6.2L18.4,6.3L19.1,6.1L19.7,5.9L20.3,5.8L21,5.7L21.6,5.6L22.2,5.5L22.9,5.4L23.5,5.4L24.2,5.4L24.8,5.4L25.5,5.5L26.1,5.5L26.8,5.6L27.4,5.7L28.1,5.8L28.7,6ZM22.3,5.6L22.2,5.7L22,5.7L21.8,5.7L21.6,5.7L21.8,5.7L21.7,5.8L21.5,5.8L21.3,5.8L21.2,5.8L21,5.8L20.7,5.8L20.8,5.8L20.7,5.8L20.9,5.7L21.1,5.7L21.2,5.7L21.4,5.6L21.7,5.6L21.8,5.6L21.9,5.6L22.1,5.5L22.2,5.5L22.4,5.5L22.3,5.5L22.2,5.6L22,5.6L21.9,5.6L22.1,5.6L22.3,5.5L22.5,5.5L22.6,5.5L22.4,5.6L22.5,5.6L22.7,5.5L22.7,5.6L22.6,5.6L22.5,5.6ZM21.5,5.8L21.8,5.8L21.7,5.8L21.6,5.8ZM19.5,6.5L19.6,6.4L19.7,6.4L19.8,6.4L19.9,6.4L19.8,6.4ZM20.2,6.2L20,6.2L20.1,6.2L20,6.3L19.7,6.4L19.5,6.4L19.5,6.5L19.3,6.5L19.1,6.6L19,6.6L18.9,6.7L18.7,6.7L18.5,6.8L18.3,6.9L18,7L18,6.9L17.7,7.1L17.5,7.2L17.2,7.3L17.1,7.4L16.9,7.4L16.7,7.4L16.9,7.3L17.2,7.2L17.3,7.1L17.1,7.1L16.9,7.2L16.7,7.3L16.6,7.4L16.3,7.5L16.1,7.5L16.3,7.5L16.7,7.3L16.3,7.4L16.1,7.5L16,7.5L16.3,7.4L16.6,7.2L16.8,7.1L16.9,7.1L17.1,7L17.3,6.9L17.2,6.9L17.4,6.8L17.6,6.7L17.7,6.7L17.6,6.8L17.4,6.9L17.6,6.8L17.7,6.8L17.8,6.8L18,6.8L18.1,6.8L18.3,6.7L18.5,6.6L18.8,6.5L19,6.5L18.9,6.5L19,6.4L19.3,6.3L19.6,6.2L19.7,6.1L19.9,6.1L20,6.1L20.2,6.1L20.3,6.1L20.4,6.2L20.3,6.2ZM21.3,5.9L21.2,5.9L21,5.9L20.8,5.9L20.6,5.9L20.7,5.9L20.8,5.9L20.9,5.9L21.2,5.8L21.3,5.8L21.1,5.9L21.3,5.9ZM29.3,7.5L29.4,7.6L29.3,7.6L29.2,7.6L29.2,7.5L29.3,7.5ZM20.5,6L20.6,6L20.8,6L20.9,6L20.8,6.1L20.6,6.1L20.5,6.1ZM22.8,5.5L23.1,5.5L23.4,5.5L23.3,5.6L23.4,5.6L23.1,5.6L23,5.6L22.7,5.7L22.6,5.7L22.5,5.6L22.6,5.6L22.8,5.6L22.8,5.5ZM28.7,7.2L28.8,7.2L28.8,7.3L28.7,7.3L28.6,7.3L28.6,7.2ZM21,6.1L21,6L21.1,6L21.2,6L21.3,6L21.2,6L21.1,6.1ZM28.6,7.3L28.8,7.4L28.9,7.5L28.9,7.6L28.7,7.6L28.5,7.5L28.5,7.4ZM21.6,6L21.5,6L21.4,6L21.3,6L21.4,5.9L21.5,5.9L21.6,5.9L21.7,5.9L21.8,5.9L21.7,6L21.6,6ZM22.2,5.8L22.1,5.8L22.1,5.9L22,5.9L21.9,5.8L22.2,5.8L22.3,5.7L22.4,5.7L22.5,5.7L22.4,5.8L22.7,5.7L22.8,5.7L22.8,5.8L22.5,5.8L22.3,5.8L22.2,5.8L22.4,5.8L22.4,5.9L22.3,5.9ZM25,10.4L24.6,10.4L24.6,10.3L24.4,10.3L24.3,10.2L24.4,10.1L24.4,10L24.6,9.8L24.5,9.8L24.7,9.6L24.6,9.5L24.8,9.4L25,9.2L25.2,9.2L25.3,9.1L25.4,9.1L25.5,9.1L25.5,9.2L25.3,9.3L25.1,9.4L24.9,9.7L24.8,9.9L24.7,10.1L24.8,10.3ZM21.5,6.1L21.4,6.1L21.2,6.1L21.1,6.1L20.9,6.2L20.8,6.2L20.7,6.2L20.6,6.3L20.5,6.3L20.4,6.4L20.3,6.4L20.2,6.4L20.1,6.4L20.2,6.3L20.3,6.3L20.4,6.2L20.5,6.2L20.7,6.1L20.9,6.1L21,6.1L21.1,6.1L21.3,6.1L21.4,6L21.6,6L21.6,6.1ZM22.9,5.8L23,5.8L23.1,5.7L23.2,5.7L23.3,5.7L23.2,5.8L23.1,5.8L23,5.8ZM21.5,6.1L21.7,6.1L21.6,6.1L21.5,6.1ZM22.5,5.9L22.6,5.9L22.7,5.9L22.6,5.9L22.5,5.9ZM22.5,8.9L22.3,8.9L22.2,8.8L22.3,8.8L22.3,8.7L22.4,8.7L22.4,8.8ZM22.6,6L22.7,5.9L22.8,5.9L22.7,6ZM21.7,6.1L21.8,6.1L21.9,6.1L22,6.1L21.9,6.1L21.8,6.1ZM22,6.1L21.9,6L22,6L22.2,6L22.3,6L22.4,6L22.5,6L22.3,6.1L22.1,6.1ZM27.2,8.2L27,8.4L26.8,8.2L26.8,8.1L27.1,8.1ZM22.4,8.5L22.4,8.6L22.2,8.7L22.1,8.8L22,8.8L21.8,8.9L21.7,8.9L21.7,8.8L21.8,8.7L21.9,8.5L22,8.4L22.2,8.3L22.1,8.4L22.2,8.4L22.3,8.4ZM22.8,8.4L22.9,8.5L22.7,8.6L22.6,8.6L22.4,8.5L22.5,8.5L22.4,8.4L22.4,8.3L22.6,8.3L22.6,8.4L22.7,8.3ZM24.2,8.5L24.1,8.5L24,8.5L24,8.6L23.9,8.5L24,8.5L23.8,8.5L23.9,8.4L24,8.4L24,8.5L24.1,8.4L24.2,8.5ZM26.8,8.2L26.8,8.3L26.6,8.3L26.4,8.3L26.2,8.2L26.1,8.2L26.1,8L26.3,8L26.6,8.1ZM21.6,6.3L21.5,6.3L21.4,6.2L21.5,6.2L21.6,6.2L21.8,6.2L21.9,6.2L22.1,6.2L22.2,6.2L22.2,6.3L22.3,6.3L22.2,6.3L22,6.3L21.9,6.3L21.8,6.3ZM22,6.7L21.9,6.8L21.8,6.8L21.7,6.8L21.6,6.8L21.6,6.7L21.5,6.7L21.4,6.7L21.3,6.7L21.1,6.6L21.2,6.5L21.1,6.5L20.9,6.5L20.8,6.5L20.8,6.4L20.7,6.4L20.6,6.4L20.5,6.4L20.7,6.3L20.8,6.2L20.9,6.2L21.1,6.2L21.2,6.2L21.1,6.2L21.3,6.2L21.3,6.3L21.1,6.3L21.3,6.3L21.4,6.3L21.5,6.3L21.6,6.3L21.8,6.3L21.7,6.4L21.6,6.4L21.7,6.4L21.9,6.3L22,6.3L22.1,6.3L22.2,6.3L22.3,6.4L22.2,6.4L22.3,6.5L22.2,6.5L22.1,6.5L22.2,6.5L22.2,6.6L22.1,6.6L22.1,6.7ZM22,7.3L21.8,7.5L21.7,7.5L21.6,7.4L21.5,7.3L21.5,7.4L21.5,7.5L21.6,7.5L21.5,7.6L21.3,7.6L21.4,7.6L21.7,7.6L21.7,7.7L21.6,7.8L21.3,7.8L21.2,7.8L21.1,7.7L21.1,7.8L20.9,7.8L20.6,7.9L20.3,8L20.2,8.1L20.1,8.1L20,8.1L19.9,8.2L19.6,8.3L19.4,8.4L19.3,8.4L19.2,8.5L19.1,8.5L19,8.5L18.9,8.4L18.8,8.5L18.6,8.6L18.7,8.5L18.6,8.5L18.6,8.6L18.4,8.7L18.2,8.8L18.1,8.8L18.2,8.7L18.3,8.6L18.1,8.7L17.9,8.7L18,8.8L18,8.9L17.7,8.9L17.4,8.9L17.2,8.8L17.2,8.7L17,8.7L16.7,8.8L16.5,8.8L16.4,8.8L16.4,8.7L16.3,8.7L16.1,8.7L15.9,8.8L15.7,8.8L15.5,8.9L15.2,9L15,9.1L14.7,9.2L14.7,9.1L15,8.9L15,8.8L15.2,8.6L15.5,8.5L15.9,8.2L16.1,8.1L16.3,8L16.6,7.8L16.8,7.8L16.9,7.7L17.3,7.7L17.5,7.7L17.7,7.6L17.6,7.6L17.7,7.5L17.9,7.4L18,7.4L18,7.5L17.9,7.6L18.1,7.4L18.2,7.4L18.3,7.3L18.6,7.3L18.7,7.2L18.9,7.2L19.3,7.1L19.4,7L19.5,7L19.8,6.9L19.9,6.8L20,6.7L20.1,6.7L20.4,6.6L20.4,6.7L20.3,6.7L20.5,6.6L20.7,6.6L20.8,6.6L20.8,6.7L20.9,6.7L21,6.7L21.1,6.7L21.2,6.7L21.4,6.8L21.5,6.8L21.6,6.8L21.6,6.9L21.5,6.9L21.4,7L21.6,7L21.4,7.1L21.3,7.1L21.5,7.1L21.6,7.1L21.8,7.1L21.8,7.2L21.9,7.2L22,7.2Z"/>
+        </defs>
+        <g filter="url(#sketch)">
+          <path d="M31.7,7L28,6.3L24,7M27.9,5.8L24,7M25.1,5.4L24,7M22.4,5.5L24,7M19.4,6L24,7M15.4,7.5L19.5,6.4L24,7M9.5,12.4L15.8,7.9L24,7M5.5,25.6L5.4,24.3L6.8,17.7L10.9,12.2L16.9,8.4L24,7M10.8,37.1L7.8,32.5L6.8,26.8L8.1,20.1L11.8,14L17.4,9.4L24,7M16.3,41L11.8,36.5L10.2,29.1L11.2,22.2L14.2,15.6L18.7,10.2L24,7M20.1,42.2L18.1,41L16.6,38.6L15.6,35.1L15.3,30.7L15.9,23.7L17.8,16.7L20.7,10.9L24,7M22.9,42.6L22.3,41.8L21.8,39.5L21.5,36L21.4,31.5L21.6,24.4L22.2,17.3L23,11.2L24,7M25.6,42.5L26.5,41.7L27.3,39.4L27.7,35.9L27.9,31.4L27.6,24.3L26.7,17.2L25.5,11.1L24,7M28.6,42L30.8,40.8L32.4,38.3L33.5,34.7L33.9,30.4L33.1,23.4L31,16.5L27.8,10.8L24,7M32.6,40.5L37.1,35.9L38.7,28.7L37.5,21.8L34.4,15.3L29.6,10.1L24,7M38.5,35.6L40.9,31.3L41.7,26.3L40.3,19.7L36.5,13.6L30.8,9.2L24,7M42.5,22.4L40.7,16.4L36.6,11.3L30.8,8.1L24,7M37.2,10.9L31.3,7.4L24,7M18.1,41.6L18.3,41.7L18.6,41.8L18.9,41.9L19.3,42L19.6,42.1L20,42.1L20.4,42.2L20.7,42.3L21.1,42.3L21.5,42.4L21.9,42.4L22.3,42.4L22.7,42.5L23.1,42.5L23.5,42.5L23.9,42.5L24.3,42.5L24.7,42.5L25.1,42.5L25.5,42.4L25.9,42.4L26.3,42.4L26.7,42.3L27.1,42.3L27.5,42.2L27.9,42.2L28.2,42.1L28.6,42L28.9,41.9L29.3,41.8L29.6,41.7L29.9,41.6L29.9,41.6M10.8,37.1L10.8,37.1L11,37.3L11.3,37.6L11.6,37.8L11.9,38L12.3,38.2L12.6,38.4L13,38.6L13.4,38.8L13.8,39L14.3,39.2L14.7,39.3L15.2,39.5L15.7,39.6L16.2,39.8L16.8,39.9L17.3,40L17.9,40.2L18.4,40.3L19,40.4L19.6,40.4L20.2,40.5L20.8,40.6L21.4,40.6L22,40.7L22.6,40.7L23.3,40.7L23.9,40.7L24.5,40.7L25.1,40.7L25.7,40.7L26.4,40.6L27,40.6L27.6,40.5L28.2,40.5L28.8,40.4L29.3,40.3L29.9,40.2L30.5,40.1L31,40L31.6,39.8L32.1,39.7L32.6,39.6L33.1,39.4L33.5,39.2L34,39.1L34.4,38.9L34.8,38.7L35.2,38.5L35.6,38.3L36,38.1L36.3,37.9L36.6,37.6L36.9,37.4L37.1,37.2L37.2,37.1M6.8,31L6.8,31L6.9,31.3L7.1,31.6L7.3,31.9L7.5,32.2L7.8,32.5L8.1,32.8L8.4,33L8.8,33.3L9.2,33.6L9.6,33.8L10,34.1L10.5,34.3L11,34.6L11.5,34.8L12.1,35L12.6,35.2L13.2,35.4L13.8,35.6L14.5,35.8L15.1,35.9L15.8,36.1L16.5,36.2L17.2,36.4L17.9,36.5L18.6,36.6L19.3,36.7L20.1,36.7L20.8,36.8L21.6,36.9L22.3,36.9L23.1,36.9L23.8,36.9L24.6,36.9L25.4,36.9L26.1,36.9L26.9,36.8L27.6,36.8L28.4,36.7L29.1,36.6L29.8,36.5L30.5,36.4L31.2,36.3L31.9,36.1L32.6,36L33.3,35.8L33.9,35.7L34.5,35.5L35.1,35.3L35.7,35.1L36.3,34.9L36.8,34.7L37.3,34.4L37.8,34.2L38.2,33.9L38.7,33.7L39.1,33.4L39.4,33.1L39.8,32.9L40.1,32.6L40.4,32.3L40.6,32L40.8,31.7L41,31.4L41.2,31.1L41.2,31M5.4,24L5.4,24.3L5.5,24.6L5.5,24.9L5.7,25.2L5.8,25.6L6,25.9L6.2,26.2L6.5,26.5L6.8,26.8L7.1,27.1L7.4,27.4L7.8,27.7L8.2,28L8.7,28.3L9.1,28.6L9.6,28.8L10.2,29.1L10.7,29.3L11.3,29.5L11.9,29.8L12.5,30L13.2,30.2L13.9,30.3L14.6,30.5L15.3,30.7L16,30.8L16.7,31L17.5,31.1L18.3,31.2L19,31.3L19.8,31.4L20.6,31.4L21.4,31.5L22.2,31.5L23,31.6L23.8,31.6L24.6,31.6L25.5,31.5L26.3,31.5L27.1,31.5L27.9,31.4L28.7,31.3L29.4,31.2L30.2,31.1L31,31L31.7,30.9L32.4,30.7L33.2,30.6L33.9,30.4L34.5,30.2L35.2,30L35.8,29.8L36.4,29.6L37,29.4L37.6,29.2L38.1,28.9L38.7,28.7L39.1,28.4L39.6,28.1L40,27.8L40.4,27.6L40.8,27.3L41.1,27L41.4,26.6L41.7,26.3L41.9,26L42.1,25.7L42.3,25.4L42.4,25.1L42.5,24.7L42.6,24.4L42.6,24.1L42.6,24M6.8,17L6.7,17.2L6.6,17.5L6.5,17.8L6.5,18.1L6.5,18.4L6.6,18.7L6.7,19.1L6.8,19.4L6.9,19.7L7.1,20L7.3,20.3L7.5,20.6L7.8,20.9L8.1,21.1L8.4,21.4L8.8,21.7L9.2,22L9.6,22.2L10,22.5L10.5,22.7L11,22.9L11.5,23.2L12.1,23.4L12.6,23.6L13.2,23.8L13.8,24L14.5,24.2L15.1,24.3L15.8,24.5L16.5,24.6L17.2,24.7L17.9,24.8L18.6,24.9L19.3,25L20.1,25.1L20.8,25.2L21.6,25.2L22.3,25.3L23.1,25.3L23.8,25.3L24.6,25.3L25.4,25.3L26.1,25.2L26.9,25.2L27.6,25.1L28.4,25.1L29.1,25L29.8,24.9L30.5,24.8L31.2,24.7L31.9,24.5L32.6,24.4L33.3,24.2L33.9,24L34.5,23.9L35.1,23.7L35.7,23.5L36.3,23.3L36.8,23L37.3,22.8L37.8,22.6L38.2,22.3L38.7,22.1L39.1,21.8L39.4,21.5L39.8,21.2L40.1,21L40.4,20.7L40.6,20.4L40.8,20.1L41,19.8L41.2,19.5L41.3,19.2L41.4,18.9L41.5,18.6L41.5,18.3L41.5,17.9L41.4,17.6L41.3,17.3L41.2,17M10.8,10.9L10.7,11L10.4,11.3L10.3,11.5L10.1,11.8L10,12L9.9,12.3L9.8,12.5L9.8,12.8L9.8,13L9.8,13.3L9.8,13.5L9.9,13.8L9.9,14L10.1,14.3L10.2,14.5L10.4,14.8L10.6,15L10.8,15.2L11,15.5L11.3,15.7L11.6,15.9L11.9,16.1L12.3,16.4L12.6,16.6L13,16.8L13.4,17L13.8,17.1L14.3,17.3L14.7,17.5L15.2,17.6L15.7,17.8L16.2,17.9L16.8,18.1L17.3,18.2L17.9,18.3L18.4,18.4L19,18.5L19.6,18.6L20.2,18.7L20.8,18.7L21.4,18.8L22,18.8L22.6,18.8L23.3,18.9L23.9,18.9L24.5,18.9L25.1,18.9L25.7,18.8L26.4,18.8L27,18.7L27.6,18.7L28.2,18.6L28.8,18.5L29.3,18.5L29.9,18.4L30.5,18.2L31,18.1L31.6,18L32.1,17.9L32.6,17.7L33.1,17.6L33.5,17.4L34,17.2L34.4,17L34.8,16.8L35.2,16.6L35.6,16.4L36,16.2L36.3,16L36.6,15.8L36.9,15.6L37.1,15.3L37.3,15.1L37.6,14.9L37.7,14.6L37.9,14.4L38,14.1L38.1,13.9L38.2,13.6L38.2,13.4L38.2,13.1L38.2,12.9L38.2,12.6L38.1,12.4L38.1,12.1L37.9,11.9L37.8,11.6L37.6,11.4L37.4,11.1L37.2,10.9M30.9,6.8L30.6,6.6L30.3,6.5L30,6.4L29.9,6.4M18.1,6.4L17.8,6.5L17.5,6.6L17.2,6.7L16.9,6.8L16.7,7L16.4,7.1L16.2,7.2L16,7.4L15.8,7.5L15.6,7.7L15.4,7.8L15.3,8L15.2,8.1L15,8.3L14.9,8.4L14.9,8.6L14.8,8.8L14.7,8.9L14.7,9.1L14.7,9.3L14.7,9.4L14.7,9.6L14.8,9.7L14.8,9.9L14.9,10.1L15,10.2L15.1,10.4L15.2,10.5L15.4,10.7L15.5,10.9L15.7,11L15.9,11.1L16.1,11.3L16.3,11.4L16.6,11.6L16.8,11.7L17.1,11.8L17.4,11.9L17.7,12.1L18,12.2L18.3,12.3L18.6,12.4L18.9,12.5L19.3,12.5L19.6,12.6L20,12.7L20.4,12.8L20.7,12.8L21.1,12.9L21.5,12.9L21.9,13L22.3,13L22.7,13L23.1,13.1L23.5,13.1L23.9,13.1L24.3,13.1L24.7,13.1L25.1,13L25.5,13L25.9,13L26.3,12.9L26.7,12.9L27.1,12.8L27.5,12.8L27.9,12.7L28.2,12.7L28.6,12.6L28.9,12.5L29.3,12.4L29.6,12.3L29.9,12.2L30.2,12.1L30.5,12L30.8,11.9L31.1,11.7L31.3,11.6L31.6,11.5L31.8,11.3L32,11.2L32.2,11.1L32.4,10.9L32.6,10.8L32.7,10.6L32.8,10.5L33,10.3L33.1,10.1L33.1,10L33.2,9.8L33.3,9.6L33.3,9.5L33.3,9.3L33.3,9.2L33.3,9L33.2,8.8L33.2,8.7L33.1,8.5L33,8.3L32.9,8.2L32.8,8L32.6,7.9L32.5,7.7L32.3,7.6L32.1,7.4L31.9,7.3L31.7,7.1L31.4,7L31.2,6.9L30.9,6.8M26.4,6.4L26.3,6.3L26.2,6.3L26.1,6.3L26,6.2L25.9,6.2L25.8,6.2L25.6,6.1L25.5,6.1L25.4,6.1L25.3,6.1L25.1,6L25,6L24.9,6L24.7,6L24.6,6L24.4,6L24.3,6L24.2,6L24,6L23.9,6L23.7,6L23.6,6L23.5,6L23.3,6L23.2,6L23.1,6L22.9,6L22.8,6L22.7,6.1L22.5,6.1L22.4,6.1L22.3,6.2L22.2,6.2L22.1,6.2L21.9,6.3L21.8,6.3L21.7,6.3L21.6,6.4L21.5,6.4L21.5,6.5L21.4,6.5L21.3,6.6L21.2,6.6L21.1,6.6L21.1,6.7L21,6.8L21,6.8L20.9,6.9L20.9,6.9L20.9,7L20.8,7L20.8,7.1L20.8,7.1L20.8,7.2L20.8,7.3L20.8,7.3L20.8,7.4L20.8,7.4L20.8,7.5L20.8,7.5L20.9,7.6L20.9,7.7L21,7.7L21,7.8L21.1,7.8L21.1,7.9L21.2,7.9L21.3,8L21.3,8L21.4,8.1L21.5,8.1L21.6,8.1L21.7,8.2L21.8,8.2L21.9,8.3L22,8.3L22.1,8.3L22.2,8.4L22.4,8.4L22.5,8.4L22.6,8.5L22.7,8.5L22.9,8.5L23,8.5L23.1,8.5L23.3,8.5L23.4,8.6L23.6,8.6L23.7,8.6L23.8,8.6L24,8.6L24.1,8.6L24.3,8.6L24.4,8.6L24.5,8.6L24.7,8.6L24.8,8.5L24.9,8.5L25.1,8.5L25.2,8.5L25.3,8.5L25.5,8.4L25.6,8.4L25.7,8.4L25.8,8.3L25.9,8.3L26.1,8.3L26.2,8.2L26.3,8.2L26.4,8.2L26.5,8.1L26.5,8.1L26.6,8L26.7,8L26.8,7.9L26.9,7.9L26.9,7.8L27,7.8L27,7.7L27.1,7.7L27.1,7.6L27.1,7.6L27.2,7.5L27.2,7.4L27.2,7.4L27.2,7.3L27.2,7.3L27.2,7.2L27.2,7.2L27.2,7.1L27.2,7L27.2,7L27.1,6.9L27.1,6.9L27,6.8L27,6.8L26.9,6.7L26.9,6.7L26.8,6.6L26.7,6.6L26.7,6.5L26.6,6.5L26.5,6.4L26.4,6.4" stroke-width=".35" opacity=".45"/>
+          <use href="#land" fill="currentColor" fill-opacity=".13" stroke="none"/>
+          <use href="#land" fill="url(#hatch)" stroke="none" opacity=".8"/>
+          <path d="M21.6,34.4L21.3,34.6L21,34.6L20.8,34.6L20.7,34.7L20.5,34.7L20.4,34.7L20,34.6L19.8,34.6L19.7,34.2L19.5,34.1L19.5,34L19.2,33.9L19,33.8L18.8,33.8L18.7,33.7L18.5,33.6L18.4,33.2L18.2,33.1L18.1,32.9L18.1,32.7L18.1,32.5L18.2,32.5L18.3,32.4L18.4,32.3L18.5,32.2L18.5,32.1L18.4,32L18.4,31.9L18.5,31.9L18.5,31.7L18.4,31.5L18.5,31.5L18.8,31.6L19.5,31.6L19.5,31.7L20.7,32.4L20.7,32.5L21.2,32.8M8.3,20.8L8.6,21L8.7,20.9L8.8,20.8L9,20.4L9.3,20.3L9.5,19.9L9.6,19.9L9.7,19.8L9.9,19.8L9.9,19.9L10,19.9L10.1,19.9L10.2,19.8L10.2,19.9L10,20.3L9.5,20L9.2,20.7L9.1,20.7L9,20.8L8.9,21.2L8.3,20.8L8.3,20.9M12.1,9.7L12.3,9.5L12.6,9.3L12.7,9.2L12.8,9.1L12.7,9.2M24.2,16.9L24.1,16.9L24.2,16.7L24,16.5L23.9,16.5L23.7,16.3L23.8,16.1L23.7,16L23.9,15.7L24.1,15.9L24.1,15.7L24.6,15.3L24.9,15.3L25.3,15.5L25.6,15.6L25.8,15.5L26.1,15.5L26.4,15.6L26.4,15.5L26.7,15.5L26.7,15.3L26.4,15.2L26.5,15L26.5,14.9L26.7,14.9L26.5,14.7L26.5,14.6L27.2,14.4L27.3,14.3L27.7,14.2L27.8,14L28.1,14L28.3,14.3L28.4,14.2L28.7,14.3L28.8,14.4L28.9,14.4L29.2,14L29.2,14.1L29.5,14.3L30.2,14.9L30.2,14.7L30.6,14.8L30.8,14.7L30.9,14.7L31.1,14.8L31.2,14.8L31.3,14.9L31.5,14.8L31.7,15L31.7,15.2L31.6,15.2L31.7,15.5L31.7,15.7L31.3,15.7L31.4,16.2L31.3,16.3L31,16.5L31.4,17L31.3,17.1L31.3,17.3L31.2,17.3L31.1,17.2L30.7,17.2L30.4,17.3L30.3,17.3L30,17.3L29.9,17.4L29.9,17.6L29.5,17.5L29.4,17.6L29.4,17.7L29.3,17.8L29,18.1L29,18.3L28.9,18.3L28.8,18.2L28.5,18.2L28.4,18L28.3,18L28.2,17.7L27.9,17.5L27.5,17.6L27.3,17.6L27,17.4L26.8,17.3L26.4,17.1L25.8,17.3L25.9,18.4L25.8,18.4L25.6,18.2L25.5,18.1L25.2,18.2L25.1,18.3M29.4,17.7L29.3,18L29.5,18.1L29.6,18L30,18.1L29.7,18.3L29.6,18.3L29.5,18.4L29.4,18.3L29.4,18.1L29.1,18.3L29.1,18.5L29,18.6L28.8,18.7L28.8,18.8L29,18.9L29.1,19.1L29,19.4L28.8,19.4L28.7,19.4L28.7,19.2L28.3,19.1L28,19L27.8,18.9L27.5,18.7L27.4,18.4L27.3,18.3L27,18.4L26.9,18.3L26.9,18.1L26.5,17.9L26.3,18.1L26.2,18.2L26.2,18.4L25.9,18.4M40.4,27L40.4,27.2L40.5,27.3L40.6,27.1L40.7,27.1L40.8,26.9L40.8,26.8L41,26.7L41.1,26.6L41.1,26.1L41.2,25.9L41.2,25.6L41.3,25.4L41.4,25.4M18.5,33.6L18.4,33.6L18,33.6L17.9,33.6L17.9,33.7L17.9,33.9L17.9,34.2L17.9,34.4L18,34.5L18.2,34.6L18.3,34.6L18.3,34.9L18.1,34.9L17.9,34.7L17.8,34.6L17.6,34.5L17.5,34.3L17.3,34.4L17.1,34.3L17,34.2L16.8,34.1L16.7,34.1L16.6,34L16.5,34L16.4,34L16.2,34L16.1,33.9L16,33.9L16,33.6L15.9,33.5L15.9,33.3L15.9,33.2L15.9,33.1L15.8,32.9L15.5,32.8L15.5,32.7L15.4,32.7L15.3,32.7L15.2,32.7L15.1,32.9L14.9,32.8L14.8,32.9L14.6,32.8L14.5,32.7L14.5,32.6L14.4,32.4L14.3,32.1L13.5,31.9L13.4,31.9L13.3,31.9L13.2,31.9M13.2,31.8L13.2,31.7L13.3,31.6L13.4,31.6L13.5,31.6L13.7,31.6L13.7,31.7L13.8,31.8L13.9,31.6L14.1,31.5L14.2,31.5L14.1,31.2L14.3,31L14.4,30.8L14.6,30.7L14.6,30.5L14.7,30.5L14.6,30.3L14.7,30L14.7,29.9L14.8,29.7L14.8,29.5L14.9,29.3L15,29.2L15.2,29.1L15.4,29.3L15.6,29.4L15.8,29.5L16,29.6L16.1,29.4L16.3,29.5L16.6,29.4L16.7,29.5L16.8,29.5L16.8,29.4L17,29.4L17.2,29.5L17.4,29.5L17.5,29.5L17.7,29.8L17.8,29.8L17.9,29.8L18,29.8L18.2,29.8L18.3,29.9L18.5,30.2L18.5,30.5L18.6,30.6L18.5,30.7L18.4,30.7L18.3,30.9L18.2,31L18.2,31.2L18.1,31.4L18.1,31.6L18,31.6L18,31.8L18,32L18,32.1L18.1,32.5M21.9,32L21.7,31.8L21.7,30.7L22,30.3L22.1,30.3L22.3,30.3L22.6,30L23,30L23.9,29.1L24.2,28.9L24.3,28.7L24.3,28.5L24.3,28.2L24.3,28.1M19.5,31.6L19.5,31.3L19.6,31.2L19.7,31L19.8,30.8L19.7,30.4L19.7,30.3L19.5,30.1L19.7,29.9L19.9,29.7L20.1,29.8L20.1,30L20.2,30.1L20.4,30.1L20.8,30.4L20.9,30.4L21,30.4L21.1,30.4L21.3,30.5L21.4,30.3L21.7,30.2L21.8,30.3L22,30.3M21.1,25.8L20.9,26L20.7,26.1L20.6,26.1L20.5,26.4L20.4,26.8L20.4,26.9L20.3,27.2L20.2,27.5L20,27.7L19.8,27.9L19.8,28L19.7,28.1L19.6,28.4L19.5,28.7L19.6,28.4L19.5,28.4L19.5,28.3L19.5,28.2L19.3,28L19.3,27.8L19.4,27.6L19.2,27.5L19.2,27.6L19,27.6L19.1,27.7L19.1,27.9L18.9,28L18.8,28.2L18.6,28.3L18.3,28L18.2,28.1L18.2,28.2L18,28.2L18,28.3L17.7,28.2L17.5,28.1L17.4,28.2L17.3,28.1L17.1,27.9L17.1,27.8L16.9,27.8L16.8,28L16.7,28.2L16.6,28.3L16.5,28.3L16.7,28.4L16.5,28.3L16.4,28.2L16.4,28.1L16.4,27.9L16.4,27.8L16.3,27.6L16.2,27.4L16.3,27.4L16.2,27.2L16.2,27.1L16.1,26.9L16,26.9L16.1,26.8L16.2,26.7L16.1,26.6L16.2,26.5L16.2,26.4L16.3,26.2L16.4,26L16.7,26.1L16.8,24.8L16.8,24.7L17.2,24.7L17.3,24.1L18.4,24.3L19.5,24.4L20.7,24.5M16.2,27.4L16.1,27.5L15.9,27.6L15.7,27.9L15.4,27.9L15.1,27.9L15,27.9L15.1,28L14.9,28.1L14.8,28.2L14.4,28.2L14.4,28.1L14.3,28.1L14.3,28.2L14,28.1L14.1,28L14,27.8L14,27.7L13.9,27.6L13.7,27.4L13.8,27.2L13.9,27.3L14,27.3L14.1,27.3L14,27L14.1,26.8L14.1,26.6L14,26.4L14,26.2L13.9,26.2L13.9,26L13.8,25.8L14,25.4L14.4,25.2L14.4,24.8L14.7,24.2L14.7,24.1L14.7,24L14.7,23.9L14.6,23.7L14.6,23.2L14.9,23.1L15.8,24L16.8,24.8M19.2,13.9L19.4,14L19.4,14.1L19.4,14.2L19.1,14.1L18.9,14.1M37.7,13.3L37.6,13.3L37.5,13.1L37.3,12.8L37.1,12.6L37,12.5L37.1,12.4L36.9,12.1L36.6,11.9L36.5,11.8L36.3,11.5L36.4,11.7L36.4,11.9L36.4,12L36.2,11.9L36,11.8L35.8,11.9L35.6,11.7L35.4,11.6L35.3,11.6L35,11.4L34.9,11.4L34.7,11.5L34.7,11.6L34.6,11.7L34.7,11.9L34.8,11.9L34.9,12L35,12.1L35.2,12.4L35.3,12.5L35.3,12.8L35.2,12.8L35.1,12.9L35,12.9L34.9,12.9L34.9,13.2L34.8,13.3L34.8,13.4L34.7,13.5L34.6,13.6L34.4,13.5L34.2,13.4L34,13.5L33.9,13.6L33.9,13.7L33.6,13.7L33.4,13.5L33.2,13.5L33.1,13.6L32.9,13.5L32.9,13.9L33.1,14L33.1,14.2L32.9,14.3L32.7,14.3L32.5,14.2L32.4,14.3L32.2,14.3L32.1,14.5L31.9,14.8L31.8,14.9L31.7,15M24.1,18.3L24,18.4L24,18.5L23.8,18.5L23.7,18.3L23.6,18.3L23.5,18.2L23.4,18.1L23.2,18L23,18.1L23,18L22.7,17.9L22.3,17.8L22.1,17.7L22.1,17.8M21.9,16.6L21.9,16.5L22,16.4L22.2,16.4L22.3,16.3L22.2,16.2L22.3,16L22.3,15.9L22,15.8L21.9,15.8L21.8,15.7L21.7,15.7L21.4,15.6L21.4,15.5L21.4,15.4L21.2,15.3L21.3,15.2L21.2,15L21,15L20.9,15L20.9,15.1L20.8,15.1L20.8,14.9L20.8,14.8L20.8,14.7L21,14.8L21.1,14.7L21,14.6L20.9,14.6L20.9,14.5L20.8,14.3L20.9,14.2L20.9,14.1L20.8,14L20.6,14L20.6,13.9L20.5,13.8L20.5,13.7L20.5,13.6L20.5,13.5L20.6,13.4L20.6,13.2L20.8,13M20.9,12.7L21.3,12.4L21.5,12.3L21.6,12.2L21.4,12L21.6,11.8L21.5,11.6L21.7,11.5L21.6,11.2L21.8,11L21.7,10.8L21.8,10.7L21.9,10.7L22.1,10.6M20.7,16.9L20.8,16.8L21,16.9L21.1,17M21.8,10.7L21.9,10.5L21.8,10.4L21.6,10.5L21.5,10.6L21.3,10.7L21.2,10.6L21.1,10.6L21.1,10.5L21,10.5L20.9,10.5L20.8,10.7L20.6,10.6L20.5,10.7L20.4,10.7L20.2,10.8L19.9,11L19.5,11.3L19.5,11.4L19.4,11.5L19.3,11.4L19.1,11.6L18.8,11.9L18.8,12.1L18.6,12.3L18.4,12.5L18.2,12.6M15.4,37.8L15.5,37.7L15.6,37.8L15.7,37.9L15.8,37.9L16,38L16.1,38L16.3,38L16,37.2L16.1,37.2L16.3,37.5L16.4,37.6L16.4,37.7L16.6,37.7L16.7,37.6L16.8,37.6L16.9,37.5L17,37.5L17.1,37.5L17.2,37.6L17.5,37.6L17.6,37.6L17.7,37.5L17.8,37.5L17.9,37.4L17.9,37.3L18.1,37.1L18.5,37L18.6,37.1L18.8,37.1L18.9,37.1L19,37.1L19.2,37.5L19.3,37.6L19.3,37.9L19.2,37.9L19.1,37.9L19.1,38L19,38L19.1,38.1L19.2,38.2L19.4,38.2L19.4,38.1L19.7,38.2M18.7,38.5L18.6,38.4L18.4,38.4L18.3,38.5L18.2,38.6L18.5,38.8L18.6,38.7L18.7,38.7L18.7,38.6L18.8,38.6L18.7,38.5M15.7,14.1L15.6,14.2L15.7,14.2L15.7,14.4L15.7,14.5L15.8,14.5L15.9,14.7L15.9,14.8L16,14.8L16.2,15L16,15.1L15.9,15.3L15.8,15.4L15.7,15.3L15.7,15.4L15.5,15.5L15.4,15.6L15.5,15.6L15.5,15.7L15.4,15.8L15.4,15.9L15.3,16L15.3,16.2L15.3,16.3L15.3,16.4M14.3,16.5L14.1,16.4L14,16.2L13.9,16.3L13.7,16L13.7,15.9M18.5,37L18.3,36.9L18.1,36.8L18,36.7L18,36.6L17.8,36.6L17.5,36.2L17.4,36.1L17.3,36L17.2,35.8L17.5,35.9L17.6,35.9L17.7,36L17.8,35.8L18,35.7L18.1,35.6L18.2,35.6L18.3,35.5L18.5,35.5L18.6,35.6L18.8,35.6L19,35.7L19.2,35.8L19.3,35.9L19.4,36.2L19.3,36.4L19.3,36.5L19.4,36.6L19.4,36.7L19.3,36.8L19.3,36.9L19,37.1M16,37.2L15.9,36.5L16.1,36.6L16,35.7L16.2,35.8L16.6,35.8L16.7,35.9L16.9,35.8L17.1,35.8L17.2,35.8M13.5,34.9L13.6,34.9L13.7,34.9L13.9,34.9L14.1,35.1L15.2,35.3L15.4,35.5L16.1,35.7L16.6,35.7L16.8,35.7L17,35.7L17.1,35.8M7.9,22.4L8,22.4L8.1,22.4L8.2,22.5L8.2,22.6L8.3,22.8L8.3,23.1L8.4,23.4L8.4,23.5L8.3,23.7L8.4,23.9L8.4,24L8.3,24.1L8.2,24L8.1,23.9L8,23.8L7.8,23.6L7.7,23.6L7.7,23.5L7.6,23.5M7.6,23.3L7.7,23.4L7.8,23.4L7.9,23.4L7.9,23.5L8,23.5L8.1,23.5L8,23.4L7.9,23.4L7.9,23.3L7.9,23.2L7.8,23.3L7.7,23.1M8.4,23.4L8.5,23.3L8.5,23.2L8.6,23.2L8.7,23.4L8.8,23.4L8.9,23.4L9.6,23.8L9.7,23.6L9.7,23.5L9.9,22.2L10.3,20.8L10.5,21L11,21.9L11.4,22.9L11.5,23.1L11.6,23.2L11.6,23.3L11.6,23.5L11.9,23.6L11.7,24.3L11.5,24.5L11.5,24.6L11.3,24.6L11,24.5L10.9,24.6L10.7,24.5L10.6,24.5L10.5,24.4L10.4,24.4L10.2,24.4L10.2,24.5L10,24.6L9.9,24.6L9.8,24.7L9.7,24.6L9.6,24.8L9.4,25L9.4,25.1L9.3,25.2L9.3,25.4L9.2,25.4L9.2,25.2L9.1,25.3L9.1,25.2L9,25.3L8.9,25.2L8.8,25.1L8.8,25L8.8,24.9L8.7,24.9L8.8,24.8L8.8,24.6L8.8,24.5L8.7,24.4L8.6,24.4L8.5,24.4L8.5,24.3L8.4,24.2L8.3,24.2L8.3,24.1M10.7,27.4L10.6,27.2L10.7,26.5L10.7,26.4L10.7,26.2L10.6,26.1L10.6,26L10.6,25.8L10.7,25.8L10.8,25.7L10.9,25.7L10.9,25.6L11,25.6L11.1,25.6L11.3,25.9L11.2,26L11.3,26.2L11.2,26.3L11.2,26.4L11.1,26.5L11,26.6L10.9,26.8L10.9,26.9L10.9,27.4M14,26.4L13.9,26.4L13.9,26.5L13.8,26.5L13.7,26.1L13.7,26L13.4,26.2L13.2,26L13.1,25.9L13,26L12.9,25.9L12.7,26L12.6,26L12.3,25.7L12.2,25.7L12.1,25.7L12,25.5L11.8,25.3L11.5,25.3L11.4,25.5L11.3,25.6L11.3,25.9M10.9,25.6L11,25.4L10.7,25.3L10.8,25.1L10.7,24.8L10.7,24.7L10.7,24.5M11.9,23.6L12.2,23.6L13,23.2L14,22.8L14.3,23.1L14.4,23.3L14.6,23.2M13.9,26.5L14,26.6L13.9,26.7L13.9,26.8L13.7,26.9L13.6,27.1L13.5,27.3L13.4,27.5L13.2,27.6L13.2,27.8L13.1,27.9L13.1,28L12.9,28L12.8,27.9L12.7,27.8L12.5,28L12.4,28L12.3,28.2L12.2,28.4M14,28.1L13.9,28.4L13.8,28.4L13.8,28.7L13.8,28.8L13.8,28.9L13.9,29.1L13.9,29.2L14,29.4L14.1,29.5L14.1,29.6L14.2,29.7L14.1,29.9L13.9,29.8L13.7,29.6L13.4,29.5L13.3,29.5L13.2,29.5L13,29.4L12.9,29.4L12.5,29.3M10.5,27.4L10.4,27.3L10.4,27L10.4,26.9L10.5,26.6L10.4,26.5L10.4,26.2L10.5,26L10.4,25.8L10.4,25.7L10.6,25.8M9.6,27.3L9.6,27.2L9.6,26.9L9.7,26.5L9.8,26.3L9.8,25.9L9.8,25.6L9.8,25.4L10.2,25.6L10.3,25.7L10.4,25.7M9.3,25.4L9.4,25.5L9.4,25.6L9.5,25.7L9.6,25.7L9.7,25.7L9.8,25.9M8.7,27L8.7,26.7L8.7,26.6L8.7,26.4L8.6,26.3L8.6,26.2L8.6,26.1L8.6,26L8.6,25.9L8.7,25.9L8.7,25.8L8.7,25.7L8.8,25.7L8.8,25.4L8.7,25.2L8.8,25.2L8.8,25.1M8.6,25.9L8.6,25.8L8.5,25.9L8.5,25.8L8.5,25.7L8.4,25.5L8.3,25.4L8.3,25.3L8.3,25.2L8.3,25L8.3,24.9L8.2,24.8L8.1,24.8L8,24.8L8,24.9L7.9,25M7.7,24.1L7.8,24L7.9,24L7.9,24.1L8,24L8,23.9L8,23.8M8.1,25.8L8.1,25.7L8.2,25.7L8.3,25.5L8.4,25.5M14.8,29.5L14.7,29.5L14.5,29.4L14.3,29.5L14.2,29.7M16.7,28.4L16.8,28.6L16.8,28.7L17,28.9L17.1,29L17.2,29.2L17.4,29.4L17.5,29.5M13.4,31.6L13.3,31.5L13.2,31.5L13.1,31.6M12.9,31.2L13,31.1L12.9,30.9L13,30.8L13.2,30.9L13.2,30.7L13.4,30.9L13.6,31L13.7,30.9L13.7,30.7L13.7,30.5L13.6,30.2L13.7,29.9L13.6,29.9L13.4,29.8L13.3,29.7L13.4,29.5M12.4,29.6L12.5,29.6L12.9,29.8L12.9,29.4M19.2,33.9L19.3,34.1L19.4,34.3L19.4,34.4L19.3,34.6L19.4,34.8L19.3,34.9L19.2,35.1L19.4,35.2L18.5,35.3L18.5,35.5M16.6,35.7L16.4,35.5L16.1,35.2L16,34.4L16.6,34.5L16.6,34.4L16.6,34.3L16.6,34.2L16.6,34.1L16.5,34M19.8,34.6L19.7,34.8L19.8,35.1L19.9,35.1L20,35.2L20.2,35.4L20.2,35.8L20.1,35.8L20,36L19.8,35.8L19.8,35.6L19.8,35.5L19.8,35.4L19.7,35.3L19.6,35.3L19.4,35.2M18,32L18.1,32L18.2,31.9L18.4,31.9M20.5,20.9L20.6,20.9L20.7,20.9L20.7,21L20.6,21.1L20.5,21.1L20.4,21.3L20.5,21.3L20.4,21.4L20.4,21.5L20.5,21.4L20.5,21.5L20.3,22L20.2,21.5M20.8,20.4L20.9,20.5L21,20.6L20.8,20.7L20.7,20.9M14.7,19.8L14.6,20L14.5,20.1L14.4,20.2L14.2,20.2L14.2,20.4L14.1,20.5L14,20.5L14.1,20L14,19.8L14,19.7L13.9,19.5L14,19.2L14.2,19.1L14.3,18.9L14.4,18.6L14.5,18.4M10.2,19.8L10.4,19.4L10.7,19.4L10.9,19.4L11.1,19.4L11.2,19.3L11.5,19.3L11.6,19.1L11.7,19.1L11.8,19L12.1,19.1L12.2,19L12.1,18.9L12.2,18.6L12.3,18.4L12.3,18.2M14,20.5L14,20.8L13.9,21L13.8,21.2L13.8,21.4L13.7,21.5L13.7,21.7L13.6,21.8L13.6,22.1L13.6,22.2L13.6,22.4L13.8,22.4L13.9,22.6L14,22.8M20.7,21L21,21.2L21.5,20.9L21.6,21.3L21.5,21.3L21,21.5L21.2,21.8L21.1,21.8L21.1,21.9L20.9,22L20.8,22.1L20.6,22.2L20.3,22.1M26.5,23.6L26.3,23.6L26.3,23.8L26.4,23.9L26.2,24L26.2,24.1L26.2,24.2L26.2,24.4L26.1,24.4L25.2,24.3L25.1,24L25.1,23.9M24.1,22.5L23.9,22.5L23.8,22.4L23.6,22.3L23.8,22L24,22.1M21.5,20.9L22.1,20.6L22.3,20.2L22.3,20L22.4,19.9L22.5,19.7L22.7,19.7L23,19.7L23,19.8L23.2,19.8L23.3,20.1L23.5,20.2L23.5,20.4L23.4,20.5L23.3,20.8L23.5,21.1L23.8,21.3L24,21.5L23.9,21.7L24,21.7L24,21.9L24.2,22.1M23.6,22.3L23.1,22.3L22.3,21.6L21.9,21.4L21.6,21.3M25.6,26.4L25.5,26.1L25.2,25.6L26.1,25.2L26.3,24.6L26.2,24.4M38.8,24.7L38.7,24.4L38.8,24L39,23.8L39.2,23.8L39.3,23.8L39.3,23.6L39.5,23.6L39.6,23.7L39.7,24.1L39.4,24.5L39.5,24.7L39.4,24.8L39.2,25M39,26.6L38.9,26.7L38.8,26.8L38.8,26.7L38.6,26.6L38.6,26.7M38.1,25.8L38.2,25.4L38.3,25.1L38.1,24.9L38.1,24.7L38.1,24.6L37.9,24.4L37.8,24.2L37.9,24.2L37.9,23.8L37.7,23.7L37.6,23.5L37.4,23.3L37.5,23.2L37.5,22.8L37.6,22.7L37.7,22.6L37.8,22.4L37.9,22.5L37.9,22.7L38.1,22.6L38.1,22.9L38.2,23.2L38.3,22.9L38.4,23L38.5,22.9L38.5,22.8L38.6,22.7L38.8,22.9L38.9,23.2L39.1,23.3L39.2,23.6L39.2,23.8M37.8,22.4L37.8,22.3L37.9,22L37.9,22.1L38,22L37.9,21.7L37.9,21.6L38.1,21.8L38.3,22L38.5,21.9L38.6,22.1L38.6,22.3L38.5,22.4L38.8,22.5L39,22.7L39.2,22.9L39.4,23.1L39.5,23.2L39.5,23.6M36.2,23.1L36.1,22.8L36.2,22.8L36.1,22.6L36.2,22.5L36.1,22.4L36.2,22.2L36.1,21.9L36.3,21.9L36.3,21.6L36.2,21.5L36.3,21.2L36.2,21L36.4,20.7L36.5,20.7L36.4,20.5L36.5,20.4L36.4,20.3L36.5,20.2L36.7,20.4L36.8,20.4L36.9,20.6L36.9,20.9L36.9,21.2L37,21.6L37.1,21.4L37.3,21.7L37.4,21.7L37.4,22L37.6,22L37.7,22L37.8,21.9L37.9,22M37.9,21.6L38,21.5L38.1,21.4L38.3,21.3L38.4,21L38.5,21.1L38.7,21L38.7,21.2L38.8,21.3L39,21.3M38.3,14.4L38.4,14.5L38.3,14.6L38.4,14.8M37.9,14.5L37.8,14.2L37.7,14L37.6,13.8L37.7,13.8L37.7,13.7L37.6,13.6L37.6,13.4L37.5,13.2L37.6,13.3M35.2,12.8L35.3,13L35.5,13.3L35.6,13.4L35.6,13.3L35.7,13.2L35.7,13.1L35.8,13.1L36,13.2L36.1,13.3L36,13.3L35.9,13.5L36,13.6L36,13.8L36,14L36,14.3L35.9,14.3L35.8,14.3L35.9,14.5L36,14.6L36.1,14.7L36.1,14.8L36.1,15L36,15.2L35.8,15.3L35.7,15.6L35.7,15.8L35.5,15.8L35.4,15.9L35.1,15.8L34.9,15.8L34.7,16L34.4,16.1L34.2,16.2L34,16L33.8,15.8L33.7,15.8L33.4,15.7L33.1,15.8L32.9,15.8L32.8,15.7L32.7,15.4L32.4,15.2L32.1,15.2L31.9,15.1L31.8,14.9M36.1,22.6L35.9,22.2L35.8,22.2L35.8,22.4L35.7,22.3L35.7,22.1L35.8,22L35.8,21.7L35.7,21.7L35.5,21.8L35.2,21.8L35.2,21.6L35,21.7L34.8,21.6L34.8,21.8L35,21.9L34.9,22.1L34.9,22.2L35.1,22.3L35.1,22.5L35.2,22.7L35.3,22.9M29.9,23.7L30,23.4L30.6,23.3L30.5,23.1L30.4,22.9L30.3,22.7L30.1,22.6L30.3,22.2L30.6,22.2L30.8,21.8L30.9,21.4L31.1,21.1L31,20.8L31.2,20.6L31,20.5L30.8,20.3L30.7,20L30.8,19.9L31.1,19.9L31.4,19.8L31.5,19.5L31.9,19.8L31.9,20L32.1,20.2L32.1,20.3L31.9,20.3L32.1,20.7L32.4,20.8L32.8,20.9L32.7,21.1L32.7,21.4L32.9,21.5L33.2,21.6L33.5,21.7L33.9,21.6L34.1,21.7L34.2,21.7L34.5,21.7L34.7,21.6L34.7,21.5L34.6,21.3L34.6,21.2L34.7,21.1L34.8,21.3L34.8,21.4L35.1,21.4L35.2,21.3L35.4,21.3L35.5,21.2L35.5,21L35.4,20.9L35.5,20.8L35.6,20.5L35.8,20.2L36,20.2L36.1,20L36.2,20.2L36.2,20.3L36.4,20.3M34.8,21.3L34.9,21L35,20.9L35.1,20.9L35.3,20.9L35.4,20.9M32.8,20.9L32.9,20.8L33.1,20.9L33.4,21L33.5,21L33.6,21.1L33.8,21.2L34.1,21.2L34.3,21.2L34.6,21.2M27.9,23.5L28,23.1L28.4,22.9L28.3,22.7L28.2,22.7L28.2,22.4L27.9,22.3L27.8,22.1L27.6,21.9L28.1,22.1L28.3,22L28.5,22L28.6,21.9L28.7,21.9L29.1,21.8L29,21.5L29.2,21.3L29.4,21.3L29.4,21.2L29.6,21.1L29.7,21.1L29.7,21L29.7,20.8L29.8,20.6L29.9,20.5L29.8,20.3L30,20.3L30,20.2L30,20L30.1,19.9L30,19.7L29.9,19.6L30,19.5L30.3,19.3L30.5,19.3L30.6,19.2L30.8,19.1L31,19.2L31.1,19.4L31.5,19.5M29,19.4L29.1,19.4L29.3,19.3L29.4,19.4L29.4,19.2L29.5,19.2L29.6,19.1L29.6,19L29.6,18.9L29.8,18.9L29.8,19L29.9,19L29.9,19.3L30,19.4L30.1,19.3L30.2,19.3L30.3,19.1L30.5,19.1L30.7,19L30.8,19.1M27.6,21.9L27.8,21.6L27.8,21.4L27.6,21.4L27.5,21.2L27.4,20.9L27.5,20.8L27.4,20.7L27.4,20.5L27.5,20.1L27.7,20.2L27.9,20.1L28,20L28.1,19.9L28.3,19.8L28.3,19.5L28.5,19.4L28.5,19.3L28.6,19.4L28.7,19.4M29.6,18.3L29.5,18.4L29.2,18.4L29.3,18.6L29.5,18.6L29.8,18.6L30.2,18.5L30.4,18.7L30.6,18.7L30.6,18.9L30.7,19M31.3,17.3L31.3,17.4L31.1,17.6L31,17.7L30.8,17.8L30.8,18L30.5,18.1L30.4,18.1L30.2,18.3L30.3,18.4L30.2,18.5M27.5,20.1L27.4,19.8L27.2,19.8L26.9,19.6L26.7,19.6L26.4,19.4L26.2,19.4L26.1,19.5L25.9,19.5L25.8,19.6L25.5,19.7M23.2,19.8L23,19.5L23.1,19.4L23,19L23.2,19L23.2,19.1L23.4,19.2L23.5,19.3L23.6,19.3L23.9,19L24,19L24.1,19.1L24,19.3L24.2,19.4M20.9,20.1L21,20L21.1,19.9L21.1,19.8L21.2,19.8L21.5,19.8L21.6,19.8L21.8,19.8L22.1,19.7L22.2,19.8L22.5,19.7M23.5,19.3L23.4,19.1L23.4,19L23.3,19L23.3,18.9L23.2,19L23.1,18.9L22.9,18.8L23,18.6L22.9,18.5L23.3,18.5L23.3,18.6L23.4,18.6L23.3,18.7L23.5,18.8L23.4,18.9L23.5,19L23.6,19L23.6,19.3M21,10.5L21,10.7L21.1,10.8L20.9,11.2L20.9,11.3M20.8,15.1L20.6,15.1L20.5,15.2L20.4,15.2L20.3,15.2L20.2,15.1L20.2,15.2L20.1,15.1L19.9,15.1L19.8,15L19.6,14.9L19.4,14.9L19.3,15L19.2,15L19.3,14.8L19.2,14.7L19.4,14.7L19.4,14.6L19.4,14.4L19.5,14.3L19.6,14.4L19.9,14.3L19.9,14.1L20.1,14.1L20.1,14L20.3,13.9L20.5,13.8M19.9,17L19.8,16.9L19.7,16.9L19.6,16.9L19.7,16.9L19.7,16.8L19.8,16.7L19.8,16.6L19.9,16.6L20,16.7L20,16.6L20,16.5L20,16.4L19.9,16.3L20,16.2L19.9,16.1L19.8,16.1L19.7,16L19.5,16L19.4,16L19.3,16.1L19.2,16.1L19.1,16.1L19,16L18.9,16L18.8,15.9L18.7,16L18.7,15.9L18.6,15.8L18.7,15.7L18.8,15.6L18.8,15.7L18.8,15.5L19.1,15.3L19.2,15.3L19.2,15.2L19.2,15M18.8,15.6L18.6,15.5L18.5,15.5L18.4,15.5L18.3,15.5L18.2,15.4L18.1,15.4L18.1,15.2L18,15.2L18,15.1L17.9,15L17.8,15.1L17.8,15L17.8,14.9L17.7,14.9L17.6,14.8L17.7,14.6L17.7,14.5L17.8,14.3L17.8,14.2L17.9,14M18.7,16L18.5,16L18.4,16.2L18.2,16.4L18,16.4L17.9,16.4L17.7,16.4L17.6,16.4L17.5,16.3L17.4,16.2L17.3,16.1L17.3,16M17.6,15.7L17.5,15.8L17.4,15.8L17.3,16L17.2,16L17.1,16L16.9,16L16.8,16L16.6,15.8L16.6,15.7L16.4,15.7L16.3,15.8L16.3,15.7L16.2,15.7L16.1,15.6L16.2,15.5L16.3,15.5L16.3,15.6L16.4,15.5L16.5,15.6L16.7,15.6L16.8,15.7L16.8,15.6L16.9,15.4L17,15.4L17.1,15.3L17.2,15.4L17.3,15.3L17.4,15.3L17.5,15.5L17.6,15.5L17.7,15.5L17.6,15.6L17.6,15.7L17.7,15.8L17.9,15.8L18,15.8L18.1,15.8L18.2,15.8L18.3,15.7L18.4,15.7L18.6,15.8M19.6,16.9L19.6,16.7L19.6,16.6L19.7,16.5L19.6,16.3L19.6,16.2L19.5,16.1L19.5,16M19.5,17.4L19.4,17.4L19.3,17.2L19,17.3L18.9,17.3L18.6,17.2L18.4,17.2L18.3,17.2L18.3,17L18.3,16.9L18.2,17L18.1,16.8L18.1,16.7L18,16.6L18.1,16.5L18,16.4M19.3,13.7L19.5,13.6L19.8,13.7L20,13.7L20,13.8L20.1,14M20,13.3L20.2,13.3L20.3,13.5L20.5,13.5M17.6,14.8L17.5,14.7L17.5,14.8L17.3,14.8L17.2,14.8L17.1,14.9L17,14.9L17,15.1L17,15.2L17.1,15.3M16.2,15.5L16.1,15.3L16,15.4L15.9,15.3M15.9,14.8L16,14.6L16.2,14.4L16.3,14.1L16.4,14.1L16.5,14.1L16.7,13.8L16.7,13.7M19.3,17.9L19.1,17.8L18.8,17.9L18.8,18.1L18.6,18L18.5,17.9L18.2,18L18.1,17.9L18.1,17.7L18.1,17.6L18.1,17.5L18.2,17.4L18.3,17.4L18.2,17.2L18.2,17.1L18.3,17M18.8,17.9L18.9,18L18.8,18.2L18.7,18.2M17.3,18.3L17.5,18.2L17.5,18.1L17.6,18.1L17.6,18L17.8,18L17.9,17.9L18,18L18,17.9L18.1,17.9M17.4,17.6L17.4,17.5L17.5,17.4L17.6,17.4L17.6,17.5L17.6,17.6L17.6,17.7L17.6,17.8L17.5,17.9L17.6,18M17.7,16.4L17.7,16.5L17.7,16.6L17.6,16.7L17.5,16.6L17.4,16.6L17.3,16.5L17.2,16.5L17.1,16.5L17,16.6L17,16.7L17,16.8L17.1,17L17.1,17.2L17.3,17.3L17.2,17.4M16.7,16.3L16.8,16.3L16.9,16.3L17,16.4L17,16.3L17.1,16.3L17.1,16.2L17.3,16.1M16.3,15.7L16.2,15.8L16.1,15.8L16,15.7L15.9,15.8L15.8,15.8L15.6,15.8L15.5,15.8L15.5,15.7M15.8,14.1L15.9,14.2L16.1,14.2L16.1,14.3L16.2,14.4M12.4,15.7L12.5,15.7L12.6,15.7L12.5,15.8L12.6,15.9L12.7,15.9L12.7,16.1L12.5,16.1L12.4,16.3L12.3,16.5L12.2,16.5L12.2,16.7L12,16.8L12,16.9L11.9,17L11.8,17.1L11.8,17.2M15.2,12.5L15.1,12.6L15,12.8L15.1,12.8L15.1,12.9M23.3,18.5L23.3,18.4L23.5,18.5L23.6,18.5L23.7,18.5L23.6,18.3M41,25.7L41,25.8L41.1,25.7L41.1,25.6L41.1,25.4L41.1,25.3M17.7,15.5L17.8,15.5L17.9,15.5L18,15.4L18.1,15.4M22.4,27.6L22.3,27.7L22.2,27.7L22.1,27.6L22,27.4L21.8,27.3L21.8,27.1L21.5,27L21.3,27L21.2,26.9L21,27L20.9,26.8L20.7,27L20.4,26.9M22.4,26.4L22.5,26.3L22.5,26.2L22.6,26.1L22.7,26.1L22.8,26.1L23.1,26.1L23.2,26.2L23.5,26.2L23.6,26.2L23.7,26.3L23.8,26.2L24.1,25.9L24.3,25.7L25.2,25.6M20.3,20.2L20.2,20.3L20.2,20.2L20.2,20.3L20.2,20.2L20.1,20.2L20,20.2M17.3,24.1L17.4,22.9L17.7,21.8L17.6,21.5L17.7,21.3L17.7,21.2L17.9,21M19.9,29.7L19.8,29.4L19.6,29.3L19.6,29.1L19.4,29L19.2,28.9L19.3,28.8L19.5,28.8L19.5,28.7M22.2,27.7L22.1,27.8L22,27.9L22,28L22,28.1L22.2,28.1L22.3,28.1L22.3,28.2L22.3,28.3L22.4,28.5L22.5,28.6L22.6,28.7L23.7,29.1L23.9,29.1M18.5,30.2L18.6,30.1L18.8,30.2L19.1,30.2L19.3,30.2L19.5,30.1M17.6,16.7L17.7,16.7L17.6,16.8L17.6,17L17.6,17.1L17.5,17.1L17.4,17.2L17.3,17.3M17.6,17.7L17.7,17.6L17.8,17.6L17.9,17.6L18,17.6L18.1,17.6M17.9,17.6L17.9,17.5L18,17.5L17.9,17.5L17.9,17.4L17.9,17.3L17.8,17.3L17.7,17.4L17.6,17.4L17.7,17.3L17.6,17.3L17.6,17.2L17.5,17.2L17.5,17.1" stroke-width=".25" opacity=".55"/>
+          <use href="#land" stroke-width=".6"/>
+          <circle cx="24" cy="24" r="18.8" stroke-width="1.4"/>
+          <path d="M8.5 15.5C12 8 20 4.2 27.5 5.4 37 7 43.6 15 43 25.5" stroke-width=".7" opacity=".45"/>
+        </g>
+        <circle cx="29.1" cy="18.1" r="1.3" fill="var(--saffron)" stroke="var(--card)" stroke-width=".6"/>
+      </svg>
+      <span>Куда захотите</span>
+    </div>
+  </div>
+
+  <dl class="fields">
+    <div class="field"><dt>Пассажир</dt><dd>Вы</dd></div>
+    <div class="field"><dt>Рейс</dt><dd>ZG 1995</dd></div>
+    <div class="field"><dt>Работаю</dt><dd>Пн–Сб, 9:00–20:00</dd></div>
+    <div class="field"><dt>Языки</dt><dd>UZ · RU · EN</dd></div>
+  </dl>
+
+  <div class="tear" aria-hidden="true"><i></i></div>
+
+  <section class="section" aria-label="Связаться">
+    <button class="save" id="save" type="button">
+      <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      Сохранить контакт
+    </button>
+
+    <nav class="quick">
+      <a href="https://t.me/zafargafuro" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>Telegram</a>
+      <a href="https://wa.me/998946929380" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg>WhatsApp</a>
+      <a href="tel:+998946929380">
+        <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Звонок</a>
+      <a href="mailto:zov.gafurov@gmail.com">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>Почта</a>
     </nav>
 
-    <!-- Главный экран (Hero) -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden bg-navy">
-        <div class="absolute inset-0 z-0">
-            <!-- Классическая архитектура/библиотека -->
-            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2000&auto=format&fit=crop" alt="Campus Architecture" class="w-full h-full object-cover object-center opacity-40 animate-slow-zoom">
-            <div class="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/40 to-navy/90"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20 animate-fade-in-up">
-            <span class="block font-sans text-gold text-sm md:text-base tracking-[0.3em] uppercase mb-6">Основано на традициях. Устремлено в будущее.</span>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-tight">
-                Исключительное <br>
-                <span class="italic font-light text-cream">Образование</span>
-            </h1>
-            <p class="text-base md:text-lg text-cream/80 mb-12 max-w-2xl mx-auto font-sans font-light leading-relaxed">
-                Мы воспитываем лидеров, способных мыслить глобально, действовать этично и менять мир к лучшему. Добро пожаловать в закрытое академическое сообщество Wisdom School.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#admission" class="px-10 py-4 bg-gold text-white font-sans text-sm tracking-[0.2em] uppercase hover:bg-white hover:text-navy transition-colors duration-500 border border-gold hover:border-white">
-                    Запланировать визит
-                </a>
-            </div>
-        </div>
-        
-        <!-- Скролл индикатор -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-70">
-            <span class="font-sans text-[0.6rem] tracking-widest text-white uppercase mb-3">Исследовать</span>
-            <div class="w-[1px] h-12 bg-white/30 relative overflow-hidden">
-                <div class="w-full h-1/2 bg-gold absolute top-0 animate-[translateY_2s_ease-in-out_infinite]"></div>
-            </div>
-        </div>
-    </header>
+    <div class="lines">
+      <div class="line"><div><small>Телефон</small><span id="phone">+998 94 692 93 80</span></div><button class="copy" type="button" data-copy="phone">Копировать</button></div>
+      <div class="line"><div><small>Почта</small><span id="email">zov.gafurov@gmail.com</span></div><button class="copy" type="button" data-copy="email">Копировать</button></div>
+      <div class="line"><div><small>Telegram</small><span id="tg">t.me/zafargafuro</span></div><button class="copy" type="button" data-copy="tg">Копировать</button></div>
+    </div>
+  </section>
 
-    <!-- Философия / О нас -->
-    <section id="philosophy" class="py-32 relative bg-cream">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="relative reveal">
-                    <div class="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-gold/30"></div>
-                    <div class="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-gold/30"></div>
-                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1000&auto=format&fit=crop" alt="Classic Library" class="relative z-10 w-full h-[600px] object-cover shadow-2xl grayscale-[20%]">
-                    <!-- Декоративный бейдж -->
-                    <div class="absolute -right-10 top-20 bg-white p-6 shadow-xl z-20 hidden md:block">
-                        <div class="border border-gold p-4 text-center">
-                            <span class="block font-serif text-4xl text-navy mb-1">10+</span>
-                            <span class="block font-sans text-[0.6rem] tracking-widest text-gray-500 uppercase">Лет<br>Превосходства</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-[1px] bg-gold"></div>
-                        <span class="font-sans text-xs tracking-[0.2em] text-gold uppercase">Наша Философия</span>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-serif text-navy mb-8 leading-tight">
-                        Искусство <span class="italic text-gold">созидания</span> интеллекта
-                    </h2>
-                    <div class="space-y-6 text-gray-600 font-light leading-relaxed">
-                        <p>
-                            В Wisdom School мы верим, что истинное образование выходит далеко за рамки академической программы. Это процесс огранки таланта, формирования безупречного вкуса и высоких моральных стандартов.
-                        </p>
-                        <p>
-                            Наша методология сочетает вековые традиции классического британского образования с передовыми технологиями современности. Мы не просто готовим к экзаменам — мы готовим к жизни на высшем уровне.
-                        </p>
-                    </div>
-                    
-                    <div class="mt-12 pt-8 border-t border-gray-200">
-                        <div class="flex items-center gap-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Headmaster" class="w-16 h-16 rounded-full grayscale">
-                            <div>
-                                <p class="font-serif text-lg text-navy">Александр Романов</p>
-                                <p class="font-sans text-xs tracking-widest text-gold uppercase mt-1">Директор Академии</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="section" aria-label="Блог в Instagram">
+    <div class="h2"><h2>Блог в Instagram</h2><a href="https://www.instagram.com/zafargafurov_travel" target="_blank" rel="noopener">@zafargafurov_travel</a></div>
+    <div class="posts">
+      <a class="post p1" href="https://www.instagram.com/zafargafurov_travel" target="_blank" rel="noopener"><img src="IST.jpg" alt="Стамбул" loading="lazy" decoding="async"><span>Стамбул</span></a>
+      <a class="post p2" href="https://www.instagram.com/zafargafurov_travel" target="_blank" rel="noopener"><img src="mavrik.jpg" alt="Маврики" loading="lazy" decoding="async"><span>Маврикий</span></a>
+      <a class="post p3" href="https://www.instagram.com/zafargafurov_travel" target="_blank" rel="noopener"><img src="Dubai.jpg" alt="Дубаи" loading="lazy" decoding="async"><span>Дубай</span></a>
+    </div>
+    <a class="ig-btn" href="https://www.instagram.com/zafargafurov_travel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+      Подписаться
+    </a>
+  </section>
 
-    <!-- Привилегии / Особенности -->
-    <section id="privileges" class="py-32 relative bg-navy text-white">
-        <!-- Текстура фона -->
-        <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20 reveal">
-                <span class="font-sans text-gold text-xs tracking-[0.2em] uppercase mb-4 block">Стандарты Wisdom</span>
-                <h2 class="text-4xl md:text-5xl font-serif mb-6">Академические Привилегии</h2>
-                <div class="w-24 h-[1px] bg-gold mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Карточка 1 -->
-                <div class="group reveal cursor-pointer">
-                    <div class="mb-8 w-16 h-16 rounded-full border border-gold/30 flex items-center justify-center group-hover:bg-gold transition-colors duration-500">
-                        <svg class="w-6 h-6 text-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-serif mb-4 group-hover:text-gold transition-colors">Индивидуальное Наставничество</h3>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm">
-                        Классы до 10 человек гарантируют персональное внимание. За каждым учеником закрепляется тьютор по модели Оксфордского университета для раскрытия уникального потенциала.
-                    </p>
-                </div>
-                
-                <!-- Карточка 2 -->
-                <div class="group reveal cursor-pointer delay-100">
-                    <div class="mb-8 w-16 h-16 rounded-full border border-gold/30 flex items-center justify-center group-hover:bg-gold transition-colors duration-500">
-                        <svg class="w-6 h-6 text-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-serif mb-4 group-hover:text-gold transition-colors">Глобальная Перспектива</h3>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm">
-                        Обучение на трех языках, программы международного обмена и подготовка к поступлению в университеты Лиги Плюща и Russell Group. Ваш диплом признается во всем мире.
-                    </p>
-                </div>
+  <section class="section" aria-label="Направления">
+    <div class="h2"><h2>Куда летим из Ташкента</h2></div>
+    <div class="dests">
+      <div class="dest"><b>IST</b><span>Турция</span></div>
+      <div class="dest"><b>DXB</b><span>ОАЭ</span></div>
+      <div class="dest"><b>SSH</b><span>Египет</span></div>
+      <div class="dest"><b>TBS</b><span>Грузия</span></div>
+      <div class="dest"><b>PQC</b><span>Вьетнам</span></div>
+      <div class="dest"><b>MRU</b><span>Маврикий</span></div>
+    </div>
+  </section>
 
-                <!-- Карточка 3 -->
-                <div class="group reveal cursor-pointer delay-200">
-                    <div class="mb-8 w-16 h-16 rounded-full border border-gold/30 flex items-center justify-center group-hover:bg-gold transition-colors duration-500">
-                        <svg class="w-6 h-6 text-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-serif mb-4 group-hover:text-gold transition-colors">Премиальная Инфраструктура</h3>
-                    <p class="text-gray-400 font-light leading-relaxed text-sm">
-                        От лабораторий робототехники до конного клуба и собственного театра. Кампус Wisdom School спроектирован лучшими архитекторами для эстетического и физического развития.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="tear" aria-hidden="true"><i></i></div>
 
-    <!-- Изображение на всю ширину с цитатой -->
-    <section class="relative py-40 bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1576044717148-527ba7150c90?q=80&w=2000&auto=format&fit=crop');">
-        <div class="absolute inset-0 bg-navy/70"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center reveal">
-            <svg class="w-12 h-12 text-gold mx-auto mb-8 opacity-80" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
-            <h2 class="text-3xl md:text-5xl font-serif text-white leading-relaxed italic font-light">
-                "Мы не учим детей тому, что думать. Мы учим их тому, <span class="text-gold">как</span> думать."
-            </h2>
-        </div>
-    </section>
+  <footer class="foot">
+    <div class="barcode" id="barcode" aria-hidden="true"></div>
+    <small>ZG 1995 · TAS → WORLD</small>
+  </footer>
+</main>
 
-    <!-- Форма заявки (Приглашение) -->
-    <section id="admission" class="py-32 relative bg-cream">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white p-10 md:p-20 shadow-2xl relative reveal">
-                <!-- Декоративные рамки внутри карточки -->
-                <div class="absolute inset-4 border border-gray-200 pointer-events-none"></div>
-                <div class="absolute inset-5 border border-gold/20 pointer-events-none"></div>
+<p class="tap">Приложите телефон к карте, чтобы открыть эту страницу снова</p>
 
-                <div class="text-center mb-16 relative z-10">
-                    <span class="font-sans text-gold text-xs tracking-[0.2em] uppercase mb-4 block">Присоединиться к кругу избранных</span>
-                    <h2 class="text-4xl md:text-5xl font-serif text-navy mb-6">Частный Визит</h2>
-                    <p class="text-gray-500 font-light max-w-lg mx-auto">
-                        Оставьте свои контактные данные, и персональный консьерж свяжется с вами для организации конфиденциальной экскурсии по кампусу.
-                    </p>
-                </div>
+<script>
+const CONTACT = {
+  first: "Zafar", last: "Gafurov", org: "InTour Travel", title: "Тур-агент",
+  phone: "+998946929380", email: "zov.gafurov@gmail.com",
+  url: "https://www.instagram.com/zafargafurov_travel", note: "Telegram: t.me/zafargafuro"
+};
 
-                <form id="luxuryForm" class="relative z-10 max-w-2xl mx-auto space-y-10" onsubmit="event.preventDefault(); showSuccess();">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div class="relative">
-                            <input type="text" required class="w-full bg-transparent border-b border-gray-300 focus:border-gold text-navy px-0 py-3 outline-none transition-colors duration-300 font-serif text-lg placeholder-transparent peer" id="name" placeholder="Name">
-                            <label for="name" class="absolute left-0 top-3 text-gray-400 font-sans text-xs tracking-widest uppercase transition-all duration-300 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gold peer-valid:-top-4 peer-valid:text-xs peer-valid:text-gray-500">Ваше Имя и Фамилия</label>
-                        </div>
-                        <div class="relative">
-                            <input type="tel" required class="w-full bg-transparent border-b border-gray-300 focus:border-gold text-navy px-0 py-3 outline-none transition-colors duration-300 font-serif text-lg placeholder-transparent peer" id="phone" placeholder="Phone">
-                            <label for="phone" class="absolute left-0 top-3 text-gray-400 font-sans text-xs tracking-widest uppercase transition-all duration-300 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gold peer-valid:-top-4 peer-valid:text-xs peer-valid:text-gray-500">Контактный Телефон</label>
-                        </div>
-                    </div>
-                    
-                    <div class="relative">
-                        <select required class="w-full bg-transparent border-b border-gray-300 focus:border-gold text-navy px-0 py-3 outline-none transition-colors duration-300 font-serif text-lg appearance-none cursor-pointer">
-                            <option value="" disabled selected hidden></option>
-                            <option value="primary">Начальная школа (Primary)</option>
-                            <option value="middle">Средняя школа (Middle)</option>
-                            <option value="high">Старшая школа (High / A-Level)</option>
-                        </select>
-                        <label class="absolute left-0 -top-4 text-gray-500 font-sans text-xs tracking-widest uppercase">Возрастная Ступень Ребенка</label>
-                        <!-- Иконка стрелки -->
-                        <div class="absolute right-0 top-4 pointer-events-none text-gold">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                    </div>
+document.getElementById("save").addEventListener("click", () => {
+  const vcf = [
+    "BEGIN:VCARD", "VERSION:3.0",
+    `N:${CONTACT.last};${CONTACT.first};;;`, `FN:${CONTACT.first} ${CONTACT.last}`,
+    `ORG:${CONTACT.org}`, `TITLE:${CONTACT.title}`,
+    `TEL;TYPE=CELL:${CONTACT.phone}`, `EMAIL:${CONTACT.email}`,
+    `URL:${CONTACT.url}`, `NOTE:${CONTACT.note}`, "END:VCARD"
+  ].join("\r\n");
+  const blob = new Blob([vcf], {type: "text/vcard;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "zafar-gafurov.vcf";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+});
 
-                    <div class="pt-8 text-center">
-                        <button type="submit" class="inline-flex items-center justify-center px-12 py-4 bg-navy text-white font-sans text-xs tracking-[0.2em] uppercase hover:bg-gold transition-colors duration-500 w-full md:w-auto">
-                            Отправить приглашение
-                        </button>
-                    </div>
-                </form>
+document.querySelectorAll(".copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const el = document.getElementById(btn.dataset.copy);
+    const text = el.textContent.trim();
+    const ok = () => { btn.textContent = "Скопировано"; btn.classList.add("done");
+      setTimeout(() => { btn.textContent = "Копировать"; btn.classList.remove("done"); }, 1600); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+  });
+});
 
-                <!-- Уведомление об успехе -->
-                <div id="successMsg" class="hidden mt-12 text-center relative z-10 animate-fade-in-up">
-                    <div class="inline-block p-6 border border-gold/30 bg-cream">
-                        <h3 class="font-serif text-2xl text-navy mb-2">Благодарим за интерес</h3>
-                        <p class="font-light text-gray-600">Ваш запрос передан консьерж-службе. Ожидайте звонка.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+document.querySelectorAll(".post img").forEach(img => {
+  const drop = () => img.remove();
+  if (img.complete && img.naturalWidth === 0) drop(); else img.addEventListener("error", drop);
+});
 
-    <!-- Подвал (Footer) -->
-    <footer class="bg-navy border-t border-white/10 pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <div class="flex items-center gap-3 mb-6">
-                        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path></svg>
-                        <span class="font-serif text-2xl font-semibold tracking-wider text-white uppercase">Wisdom</span>
-                    </div>
-                    <p class="text-gray-400 font-light text-sm max-w-sm leading-relaxed">
-                        Символ академического превосходства и безупречного воспитания. Инвестируйте в наследие, которое останется в веках.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="font-sans text-xs tracking-[0.2em] text-gold uppercase mb-6">Контакты</h4>
-                    <ul class="space-y-4 text-gray-400 font-light text-sm">
-                        <li>Ташкент, Узбекистан</li>
-                        <li>ул. Элитная, 1</li>
-                        <li class="pt-2">
-                            <a href="tel:+998900000000" class="hover:text-gold transition-colors">+998 90 000 00 00</a>
-                        </li>
-                        <li>
-                            <a href="mailto:concierge@wisdomschool.uz" class="hover:text-gold transition-colors">concierge@wisdomschool.uz</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-sans text-xs tracking-[0.2em] text-gold uppercase mb-6">Официальный сайт</h4>
-                    <a href="https://www.wisdomschool.uz" target="_blank" class="text-gray-400 font-light text-sm hover:text-gold transition-colors underline underline-offset-4 decoration-gold/30">
-                        Перейти на wisdomschool.uz
-                    </a>
-                </div>
-            </div>
-            
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-sans text-[0.6rem] tracking-[0.1em] text-gray-500 uppercase">
-                    &copy; 2026 Wisdom Private School. Все права защищены.
-                </p>
-                <div class="flex gap-6">
-                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><span class="sr-only">Instagram</span><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg></a>
-                    <a href="#" class="text-gray-500 hover:text-gold transition-colors"><span class="sr-only">Facebook</span><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Скрипты -->
-    <script>
-        // Изменение стиля навигации при скролле
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-md');
-                nav.style.paddingTop = '0.5rem';
-                nav.style.paddingBottom = '0.5rem';
-            } else {
-                nav.classList.remove('shadow-md');
-                nav.style.paddingTop = '0';
-                nav.style.paddingBottom = '0';
-            }
-        });
-
-        // Анимация появления элементов (Scroll Reveal)
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Триггер при загрузке
-
-        // Обработка формы
-        function showSuccess() {
-            const form = document.getElementById('luxuryForm');
-            const msg = document.getElementById('successMsg');
-            
-            form.style.opacity = '0';
-            setTimeout(() => {
-                form.style.display = 'none';
-                msg.classList.remove('hidden');
-            }, 300);
-        }
-    </script>
+(function barcode(){
+  const box = document.getElementById("barcode");
+  const seed = "INTOUR-TRAVEL-ZG1995-TAS";
+  let html = "";
+  for (let i = 0; i < seed.length * 2; i++) {
+    const c = seed.charCodeAt(i % seed.length) + i * 7;
+    html += `<i style="width:${1 + (c % 3)}px"></i>`;
+    if (c % 5 === 0) html += `<i style="width:3px"></i>`;
+  }
+  box.innerHTML = html;
+})();
+</script>
 </body>
 </html>
